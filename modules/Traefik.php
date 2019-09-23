@@ -1,0 +1,14 @@
+<?php
+
+class Traefik extends PatchBase {
+	function __construct() {
+		parent::__construct('Containous', 'Traefik', 'https://traefik.io/');
+	}
+	function check() : bool {
+		if ($this->fetch('https://api.github.com/repos/containous/traefik/releases/latest', true))
+			return $this->parse_json('tag_name');
+		return false;
+	}
+}
+
+?>
