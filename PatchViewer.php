@@ -15,15 +15,23 @@ $db->sort();
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="jquery.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="jquery-3.4.1.slim.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#list').DataTable();
+      });
+    </script>
     <title>Patchbot</title>
   </head>
   <body>
     <div class="container p-5">
       <h2 class="mb-4">Patch Notification Robot</h2>
       <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" alt="Donate" /></a></p>
-      <p>Providing you the latest update notifications:</p>
-      <table class="table table-bordered table-hover table-sm">
+      <p>Providing you the latest update notifications.</p>
+      <table id="list" class="table table-bordered table-hover table-sm">
         <thead class="thead-dark">
           <tr>
             <th>Vendor</th>
