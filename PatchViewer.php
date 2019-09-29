@@ -17,8 +17,8 @@ $db->sort();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="jquery.dataTables.min.css">
-    <script type="text/javascript" charset="utf8" src="jquery-3.4.1.slim.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="jquery.dataTables.min.js"></script>
+    <script src="jquery-3.4.1.slim.min.js"></script>
+    <script src="jquery.dataTables.min.js"></script>
     <script>
       $(document).ready(function() {
         $('#list').DataTable();
