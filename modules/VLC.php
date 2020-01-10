@@ -6,7 +6,7 @@ class VLC extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.videolan.org/vlc/download-windows.html'))
-			return $this->parse('_//get\.videolan\.org/vlc/([\d\.]+)/win32/vlc-[\d\.]+-win32\.exe_');
+			return $this->parse('_//get\.videolan\.org/vlc/[\d\.]+/win32/vlc-([\d\.]+)-win32\.exe_');
 		return false;
 	}
 }

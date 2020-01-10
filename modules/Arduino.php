@@ -6,7 +6,7 @@ class Arduino extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.arduino.cc/en/Main/Software'))
-			return $this->parse('_<div class="blue-title">[\s]*ARDUINO ([\d\.]+)[\s]*</div>_');
+			return $this->parse('/<div class="blue-title">[\s]*ARDUINO ([\d\.]+)[\s]*<\/div>/');
 		return false;
 	}
 }
