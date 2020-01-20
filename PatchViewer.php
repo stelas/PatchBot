@@ -30,7 +30,7 @@ $db->sort();
     <div class="container p-5">
       <h2 class="mb-4">Patch Notification Robot</h2>
       <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url"><img src="btn_donateCC_LG.gif" alt="Donate" /></a></p>
-      <p>Providing you the latest update notifications.</p>
+      <p><a href="https://twitter.com/Patchbot_de"><img src="twitter.png" height="32" alt="Follow me" /></a>&nbsp;Providing you the latest update notifications.</p>
       <table id="list" class="table table-bordered table-hover table-sm">
         <thead class="thead-dark">
           <tr>
