@@ -6,7 +6,7 @@ class MozillaThunderbird extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.thunderbird.net/de/thunderbird/all/'))
-			return $this->parse('_"https://download\.mozilla\.org/\?product=thunderbird-([\d\.]+)(-SSL)?&(amp;)?os=win&(amp;)?lang=en-US"_');
+			return $this->parse('_//download\.mozilla\.org/\?product=thunderbird-([\d\.]+)(-SSL)?&(amp;)?os=win&(amp;)?lang=en-US_');
 		return false;
 	}
 }
