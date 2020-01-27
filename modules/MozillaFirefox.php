@@ -2,7 +2,7 @@
 
 class MozillaFirefox extends PatchBase {
 	function __construct() {
-		parent::__construct('Mozilla', 'Firefox', 'https://www.mozilla.org/de/firefox/all/');
+		parent::__construct('Mozilla', 'Firefox', 'https://www.mozilla.org/en-US/firefox/all/');
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.mozilla.org/de/firefox/all/'))
