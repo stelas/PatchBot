@@ -1,6 +1,6 @@
 <?php
 
-class Wordpress extends PatchBase {
+class WordPress extends PatchBase {
 	function __construct() {
 		parent::__construct('WordPress Foundation', 'WordPress', 'https://wordpress.org/');
 	}
