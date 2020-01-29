@@ -1,0 +1,14 @@
+<?php
+
+class WinSCP extends PatchBase {
+	function __construct() {
+		parent::__construct('Martin Přikryl', 'WinSCP', 'https://winscp.net/');
+	}
+	function check() : bool {
+		if ($this->fetch('https://winscp.net/eng/download.php'))
+			return $this->parse('/<h1>WinSCP ([\d\.]+) Download<\/h1>/');
+		return false;
+	}
+}
+
+?>
