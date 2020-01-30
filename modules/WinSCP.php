@@ -6,7 +6,7 @@ class WinSCP extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://winscp.net/eng/download.php'))
-			return $this->parse('/<h1>WinSCP ([\d\.]+) Download<\/h1>/');
+			return $this->parse('_/download/WinSCP-([\d\.]+)-Setup\.exe_');
 		return false;
 	}
 }
