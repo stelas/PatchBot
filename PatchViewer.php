@@ -37,7 +37,7 @@ $db->sort();
             <th>Vendor</th>
             <th>Product</th>
             <th>Version</th>
-            <th>Release Date*</th>
+            <th title="*) or first discovery time">Release Date*</th>
           </tr>
         </thead>
         <tbody>
