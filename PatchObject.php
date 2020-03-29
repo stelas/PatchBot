@@ -4,6 +4,7 @@ class PatchObject {
 	private $id = '';
 	private $vendor = '';
 	private $product = '';
+	private $branch = '';
 	private $version = '';
 	private $url = '';
 	private $timestamp = 0;
@@ -14,10 +15,10 @@ class PatchObject {
 		}
 	}
 	function __toString() : string {
-		return $this->vendor . ' ' . $this->product . ' ' . $this->version;
+		return $this->vendor . ' ' . $this->product . ' ' . $this->branch . ' ' . $this->version;
 	}
 	function toArray() : array {
-		return array('id' => $this->id, 'vendor' => $this->vendor, 'product' => $this->product, 'version' => $this->version, 'url' => $this->url, 'timestamp' => $this->timestamp);
+		return array('id' => $this->id, 'vendor' => $this->vendor, 'product' => $this->product, 'branch' => $this->branch, 'version' => $this->version, 'url' => $this->url, 'timestamp' => $this->timestamp);
 	}
 	function getId() : string {
 		return $this->id;
@@ -27,6 +28,9 @@ class PatchObject {
 	}
 	function getProduct() : string {
 		return $this->product;
+	}
+	function getBranch() : string {
+		return $this->branch;
 	}
 	function getVersion() : string {
 		return $this->version;
