@@ -17,13 +17,16 @@ abstract class PatchBase {
 	}
 	abstract function check() : bool;
 	protected function fetch(string $url, bool $json = false) : bool {
-		$opt = array('http' => array('user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20100101 Patchbot/1.0'));
+		$opt = array('http' => array('user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0'));
 		$ctx = stream_context_create($opt);
 		if ($str = file_get_contents($url, false, $ctx)) {
 			$this->data = $str;
 			if ($json) {
 				if (!($this->data = json_decode($str, true)))
 					return false;
+				// get first element only
+				if ($this->array_isMulti($this->data))
+					$this->data = array_shift($this->data);
 			}
 			return true;
 		}
@@ -44,12 +47,19 @@ abstract class PatchBase {
 		}
 		return false;
 	}
-	protected function array_extract(string $search) {
+	protected function array_isMulti(array $arr) : bool {
+		foreach ($arr as $val) {
+			if (!is_array($val))
+				return false;
+		}
+		return true;
+	}
+	/*protected function array_extract(string $search) {
 		foreach ($this->data as $val) {
 			if (array_search($search, array_values($val)))
 				$this->data = $val;
 		}
-	}
+	}*/
 	protected function str_crop(string $head = '', string $tail = '') {
 		if (!empty($head)) {
 			if ($str = strstr($this->data, $head))
