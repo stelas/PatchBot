@@ -2,7 +2,8 @@
 
 class LibreOfficeFresh extends PatchBase {
 	function __construct() {
-		parent::__construct('The Document Foundation', 'LibreOffice - Fresh Branch', 'https://www.libreoffice.org/download/download/');
+		parent::__construct('The Document Foundation', 'LibreOffice', 'https://www.libreoffice.org/download/download/');
+		$this->patch->setBranch('Fresh');
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.libreoffice.org/download/release-notes/'))
