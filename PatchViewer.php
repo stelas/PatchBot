@@ -24,7 +24,7 @@ $db->sort();
         $('#list').DataTable();
       });
     </script>
-    <title>Patchbot</title>
+    <title>PatchBot</title>
   </head>
   <body>
     <div class="container p-5">
