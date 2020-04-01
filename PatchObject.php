@@ -32,6 +32,9 @@ class PatchObject {
 	function getBranch() : string {
 		return $this->branch;
 	}
+	function setBranch(string $branch) {
+		$this->branch = $branch;
+	}
 	function getVersion() : string {
 		return $this->version;
 	}

@@ -31,7 +31,10 @@ $twitter = new Twitter($TwitterConsumerKey, $TwitterConsumerSecret, $TwitterAcce
 for ($i = 0; $i < $db->count(); $i++) {
 	$patch = $db->get($i);
 	if ($last < $patch->getTimestamp()) {
-		$s = $patch->getVendor() . ' released #' . $patch->getProduct() . ' version ' . $patch->getVersion() . '. ' . $patch->getURL();
+		$s = $patch->getVendor() . ' released #' . $patch->getProduct();
+		if (!empty($patch->getBranch()))
+			$s .= ' ' . $patch->getBranch();
+		$s .= ' version ' . $patch->getVersion() . '. ' . $patch->getURL();
 		try {
 			$twitter->send($s);
 		} catch (DG\Twitter\Exception $e) {

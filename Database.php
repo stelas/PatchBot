@@ -45,16 +45,16 @@ class Database {
 	}
 	function find(string $id) : PatchObject {
 		foreach ($this->data as $obj) {
-			if (strcmp($obj->GetId(), $id) == 0) {
+			if (strcmp($obj->getId(), $id) == 0) {
 				return $obj;
 			}
 		}
 		return new PatchObject();
 	}
 	function addOrUpdate(PatchObject $patch) {
-		$patch->SetTimestamp($this->time);
+		$patch->setTimestamp($this->time);
 		foreach ($this->data as &$obj) {
-			if (strcmp($obj->GetId(), $patch->GetId()) == 0) {
+			if (strcmp($obj->getId(), $patch->getId()) == 0) {
 				$obj = $patch;
 				return;
 			}

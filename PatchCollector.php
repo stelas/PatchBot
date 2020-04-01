@@ -13,6 +13,7 @@ foreach (new \DirectoryIterator(__DIR__ . '/modules') as $file) {
 		}
 	}
 }
+shuffle($list);
 
 $db = new Database(__DIR__ . '/db.json');
 echo 'Time: ' . date('c', $db->time()) . PHP_EOL;

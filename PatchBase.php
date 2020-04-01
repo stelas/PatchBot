@@ -34,7 +34,7 @@ abstract class PatchBase {
 	}
 	protected function parse(string $re) : bool {
 		if ($str = $this->regex_str($re)) {
-			$this->patch->SetVersion($str);
+			$this->patch->setVersion($str);
 			return true;
 		}
 		return false;
@@ -42,7 +42,7 @@ abstract class PatchBase {
 	protected function parse_json(string $key) : bool {
 		$flat = iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->data)));
 		if (!empty($flat[$key])) {
-			$this->patch->SetVersion($flat[$key]);
+			$this->patch->setVersion($flat[$key]);
 			return true;
 		}
 		return false;
