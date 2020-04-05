@@ -3,6 +3,7 @@
 require('PatchObject.php');
 require('Database.php');
 
+date_default_timezone_set('UTC');
 $db = new Database(__DIR__ . '/db.json');
 if (!$db->load()) {
 	exit(1);
