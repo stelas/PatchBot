@@ -62,7 +62,7 @@ class Database {
 		array_push($this->data, $patch);
 	}
 	private function cmp(PatchObject $a, PatchObject $b) : int {
-		return strcasecmp($a->getProduct() . $a->getBranch(), $b->getProduct() . $b->getBranch());
+		return $b->getTimestamp() > $a->getTimestamp();
 	}
 }
 
