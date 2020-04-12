@@ -2,7 +2,7 @@
 
 class IrfanView extends PatchBase {
 	function __construct() {
-		parent::__construct('Irfan Skiljan', 'IrfanView', 'https://www.irfanview.com/');
+		parent::__construct('Irfan Skiljan', 'IrfanView', 'https://www.irfanview.com/64bit.htm');
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.irfanview.com/64bit.htm'))

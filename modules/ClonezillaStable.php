@@ -2,7 +2,7 @@
 
 class ClonezillaStable extends PatchBase {
 	function __construct() {
-		parent::__construct('NCHC Free Software Lab', 'Clonezilla', 'https://clonezilla.org/');
+		parent::__construct('NCHC Free Software Lab', 'Clonezilla', 'https://clonezilla.org/downloads.php');
 		$this->patch->setBranch('Stable');
 	}
 	function check() : bool {

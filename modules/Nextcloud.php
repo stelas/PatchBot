@@ -2,7 +2,7 @@
 
 class Nextcloud extends PatchBase {
 	function __construct() {
-		parent::__construct('Nextcloud GmbH', 'Nextcloud', 'https://nextcloud.com/');
+		parent::__construct('Nextcloud GmbH', 'Nextcloud', 'https://nextcloud.com/install/');
 	}
 	function check() : bool {
 		if ($this->fetch('https://nextcloud.com/install/'))

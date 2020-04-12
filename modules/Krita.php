@@ -2,7 +2,7 @@
 
 class Krita extends PatchBase {
 	function __construct() {
-		parent::__construct('Krita Foundation', 'Krita', 'https://krita.org/');
+		parent::__construct('Krita Foundation', 'Krita', 'https://krita.org/en/download/krita-desktop/');
 	}
 	function check() : bool {
 		if ($this->fetch('https://krita.org/en/download/krita-desktop/'))

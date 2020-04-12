@@ -2,7 +2,7 @@
 
 class PDF24 extends PatchBase {
 	function __construct() {
-		parent::__construct('geek Software', 'PDF24 Creator', 'https://tools.pdf24.org/en/creator#download');
+		parent::__construct('geek Software', 'PDF24 Creator', 'https://tools.pdf24.org/en/creator');
 	}
 	function check() : bool {
 		if ($this->fetch('https://en.pdf24.org/'))

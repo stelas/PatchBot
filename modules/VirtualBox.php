@@ -2,7 +2,7 @@
 
 class VirtualBox extends PatchBase {
 	function __construct() {
-		parent::__construct('Oracle', 'VirtualBox', 'https://www.virtualbox.org/');
+		parent::__construct('Oracle', 'VirtualBox', 'https://www.virtualbox.org/wiki/Downloads');
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.virtualbox.org/wiki/Downloads'))

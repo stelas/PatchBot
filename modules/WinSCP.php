@@ -2,7 +2,7 @@
 
 class WinSCP extends PatchBase {
 	function __construct() {
-		parent::__construct('Martin Přikryl', 'WinSCP', 'https://winscp.net/');
+		parent::__construct('Martin Přikryl', 'WinSCP', 'https://winscp.net/eng/download.php');
 	}
 	function check() : bool {
 		if ($this->fetch('https://winscp.net/eng/download.php'))

@@ -2,7 +2,7 @@
 
 class OwnCloud extends PatchBase {
 	function __construct() {
-		parent::__construct('ownCloud GmbH', 'ownCloud', 'https://owncloud.org/');
+		parent::__construct('ownCloud GmbH', 'ownCloud', 'https://owncloud.org/download/');
 	}
 	function check() : bool {
 		if ($this->fetch('https://owncloud.org/download/'))

@@ -2,7 +2,7 @@
 
 class AdoptOpenJDK11 extends PatchBase {
 	function __construct() {
-		parent::__construct('AdoptOpenJDK', 'OpenJDK', 'https://adoptopenjdk.net/');
+		parent::__construct('AdoptOpenJDK', 'OpenJDK', 'https://adoptopenjdk.net/releases.html?variant=openjdk11&jvmVariant=hotspot');
 		$this->patch->setBranch('JRE 11');
 	}
 	function check() : bool {

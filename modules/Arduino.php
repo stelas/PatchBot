@@ -2,7 +2,7 @@
 
 class Arduino extends PatchBase {
 	function __construct() {
-		parent::__construct('Arduino AG', 'Arduino IDE', 'https://www.arduino.cc/');
+		parent::__construct('Arduino AG', 'Arduino IDE', 'https://www.arduino.cc/en/Main/Software');
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.arduino.cc/en/Main/Software'))
