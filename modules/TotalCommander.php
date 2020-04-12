@@ -6,7 +6,7 @@ class TotalCommander extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.ghisler.com/download.htm'))
-			return $this->parse('/version ([\d\w\.]+) of/');
+			return $this->parse('/version ([\d\.a-z]+) of/');
 		return false;
 	}
 }
