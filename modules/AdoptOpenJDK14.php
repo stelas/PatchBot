@@ -2,7 +2,7 @@
 
 class AdoptOpenJDK14 extends PatchBase {
 	function __construct() {
-		parent::__construct('AdoptOpenJDK', 'OpenJDK', 'https://adoptopenjdk.net/releases.html?variant=openjdk14&jvmVariant=hotspot');
+		parent::__construct('AdoptOpenJDK', 'OpenJDK', 'https://adoptopenjdk.net/releases.html?variant=openjdk14&amp;jvmVariant=hotspot');
 		$this->patch->setBranch('JRE 14');
 	}
 	function check() : bool {

@@ -2,7 +2,7 @@
 
 class AdoptOpenJDK8 extends PatchBase {
 	function __construct() {
-		parent::__construct('AdoptOpenJDK', 'OpenJDK', 'https://adoptopenjdk.net/releases.html?variant=openjdk8&jvmVariant=hotspot');
+		parent::__construct('AdoptOpenJDK', 'OpenJDK', 'https://adoptopenjdk.net/releases.html?variant=openjdk8&amp;jvmVariant=hotspot');
 		$this->patch->setBranch('JRE 8');
 	}
 	function check() : bool {
