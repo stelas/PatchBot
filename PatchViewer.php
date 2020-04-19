@@ -16,10 +16,10 @@ $db->sort();
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="jquery.dataTables.min.css">
-    <script src="jquery-3.4.1.slim.min.js"></script>
-    <script src="jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/jquery.dataTables.min.css">
+    <script src="assets/jquery-3.4.1.slim.min.js"></script>
+    <script src="assets/jquery.dataTables.min.js"></script>
     <script>
       $(document).ready(function() {
         $('#list').DataTable();
@@ -30,8 +30,8 @@ $db->sort();
   <body>
     <div class="container p-5">
       <h2 class="mb-4">Patch Notification Robot</h2>
-      <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url"><img src="btn_donateCC_LG.gif" alt="Donate" /></a></p>
-      <p><a href="https://www.patchbot.de/rss.xml"><img src="rss.png" alt="Subscribe" /></a>&nbsp;<a href="https://twitter.com/Patchbot_de"><img src="twitter.png" alt="Follow me" /></a>&nbsp;<a href="https://github.com/stelas/PatchBot"><img src="github.png" alt="Fork me" /></a>&nbsp;Providing you the latest update notifications.</p>
+      <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url"><img src="assets/btn_donateCC_LG.gif" alt="Donate" /></a></p>
+      <p><a href="https://www.patchbot.de/rss.xml"><img src="assets/rss.png" alt="Subscribe" /></a> <a href="https://twitter.com/Patchbot_de"><img src="assets/twitter.png" alt="Follow me" /></a> <a href="https://github.com/stelas/PatchBot"><img src="assets/github.png" alt="Fork me" /></a> Providing you the latest update notifications.</p>
       <table id="list" class="table table-bordered table-hover table-sm" data-order='[[ 4, "desc" ]]' data-page-length='25'>
         <thead class="thead-dark">
           <tr>
