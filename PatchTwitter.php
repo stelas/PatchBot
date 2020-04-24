@@ -34,7 +34,10 @@ for ($i = 0; $i < $db->count(); $i++) {
 		$s = $patch->getVendor() . ' released #' . $patch->getProduct();
 		if (!empty($patch->getBranch()))
 			$s .= ' ' . $patch->getBranch();
-		$s .= ' version ' . $patch->getVersion() . '. ' . $patch->getURL();
+		$s .= ' version ' . $patch->getVersion() . '.';
+		$len = strlen($s) + 24; // + space + wrapped URL
+		$s .= ' ' . $patch->getURL();
+		echo $patch->getId() . ': ' . $len . PHP_EOL;
 		try {
 			$twitter->send($s);
 		} catch (DG\Twitter\Exception $e) {
