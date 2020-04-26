@@ -1,6 +1,6 @@
 <?php
 
-class Floccus extends PatchBase {
+class FloccusFF extends PatchBase {
 	function __construct() {
 		parent::__construct('Marcel Klehr', 'floccus', 'https://addons.mozilla.org/en-US/firefox/addon/floccus/');
 		$this->patch->setBranch('for Firefox');
