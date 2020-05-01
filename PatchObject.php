@@ -38,7 +38,10 @@ class PatchObject {
 	function getVersion() : string {
 		return $this->version;
 	}
-	function setVersion(string $version) {
+	function setVersion(string $version, bool $trim = false) {
+		if ($trim) {
+			$version = preg_replace('/^(release-|v)/', '', $version);
+		}
 		$this->version = $version;
 	}
 	function getURL() : string {

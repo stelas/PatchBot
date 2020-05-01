@@ -42,7 +42,7 @@ abstract class PatchBase {
 	protected function parse_json(string $key) : bool {
 		$flat = iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->data)));
 		if (!empty($flat[$key])) {
-			$this->patch->setVersion(ltrim($flat[$key], 'v'));
+			$this->patch->setVersion($flat[$key], true);
 			return true;
 		}
 		return false;
