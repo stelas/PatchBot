@@ -2,7 +2,7 @@
 
 class MariaDB104 extends PatchBase {
 	function __construct() {
-		parent::__construct('MariaDB Foundation', 'MariaDB', 'https://downloads.mariadb.org/');
+		parent::__construct('MariaDB Foundation', 'MariaDB', 'https://downloads.mariadb.org/mariadb/10.4/');
 		$this->patch->setBranch('10.4');
 	}
 	function check() : bool {
