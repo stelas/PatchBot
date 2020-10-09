@@ -34,16 +34,16 @@ abstract class PatchBase {
 	}
 	protected function parse(string $re) : bool {
 		if ($str = $this->regex_str($re)) {
-			$this->patch->setVersion($str);
+			$this->patch->setVersion($str, true);
 			return true;
 		}
 		return false;
 	}
-	protected function parse_json(string $key) : bool {
+	protected function parse_json(string $key, string $re = '/(.*)/') : bool {
 		$flat = iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->data)));
 		if (!empty($flat[$key])) {
-			$this->patch->setVersion($flat[$key], true);
-			return true;
+			$this->data = $flat[$key];
+			return $this->parse($re);
 		}
 		return false;
 	}
