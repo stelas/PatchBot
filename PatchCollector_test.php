@@ -31,7 +31,7 @@ if ($db->load()) {
 			echo PHP_EOL;
 		}
 		else
-			fwrite(STDERR, $patch->id() . ': CHECK FAILED!' . PHP_EOL);
+			fwrite(STDERR, $patch . ': CHECK FAILED!' . PHP_EOL);
 	}
 	$db->save();
 }
