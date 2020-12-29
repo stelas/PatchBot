@@ -16,7 +16,7 @@ foreach (new \DirectoryIterator(__DIR__ . '/modules_test') as $file) {
 
 $db = new Database(__DIR__ . '/db.json');
 echo 'Time: ' . date('c', $db->time()) . PHP_EOL;
-if ($db->load()) {
+//if ($db->load()) {
 	foreach ($list as $patch) {
 		$oldVer = $db->find($patch->id())->getVersion();
 		if ($patch->check()) {
@@ -33,7 +33,8 @@ if ($db->load()) {
 		else
 			fwrite(STDERR, $patch . ': CHECK FAILED!' . PHP_EOL);
 	}
-	$db->save();
-}
+//	$db->save();
+	var_dump($db);
+//}
 
 ?>
