@@ -23,11 +23,11 @@ $db->sort();
 	for ($i = 0; $i < $db->count(); $i++) {
 		$patch = $db->get($i);
 		echo '<item>';
-		echo '<title>' . $patch->getVendor() . ' released ' . $patch->getProduct();
+		echo '<title>' . htmlspecialchars($patch->getVendor()) . ' released ' . htmlspecialchars($patch->getProduct());
 		if (!empty($patch->getBranch()))
-			echo ' ' . $patch->getBranch();
-		echo ' version ' . $patch->getVersion() . '.</title>';
-		echo '<link>' . $patch->getURL() . '</link>';
+			echo ' ' . htmlspecialchars($patch->getBranch());
+		echo ' version ' . htmlspecialchars($patch->getVersion()) . '.</title>';
+		echo '<link>' . htmlspecialchars($patch->getURL()) . '</link>';
 		echo '<pubDate>' . date(DATE_RSS, $patch->getTimestamp()) . '</pubDate>';
 		echo '<guid isPermaLink="false">' . hash('sha256', $patch) . '</guid>';
 		echo '</item>' . "\r\n";
