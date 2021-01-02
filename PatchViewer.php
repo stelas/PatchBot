@@ -48,10 +48,10 @@ $db->sort();
 	for ($i = 0; $i < $db->count(); $i++) {
 		$patch = $db->get($i);
 		echo '<tr>';
-		echo '<td>' . $patch->getVendor() . '</td>';
-		echo '<td><a href="' . $patch->getURL() . '">' . $patch->getProduct() . '</a></td>';
-		echo '<td>' . $patch->getBranch() . '</td>';
-		echo '<td>' . $patch->getVersion() . '</td>';
+		echo '<td>' . htmlspecialchars($patch->getVendor()) . '</td>';
+		echo '<td><a href="' . htmlspecialchars($patch->getURL()) . '">' . htmlspecialchars($patch->getProduct()) . '</a></td>';
+		echo '<td>' . htmlspecialchars($patch->getBranch()) . '</td>';
+		echo '<td>' . htmlspecialchars($patch->getVersion()) . '</td>';
 		echo '<td>' . date('Y-m-d', $patch->getTimestamp()) . '</td>';
 		echo '</tr>' . "\r\n";
 	}
