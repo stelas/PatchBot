@@ -1,8 +1,8 @@
 <?php
 
-class OwnCloud extends PatchBase {
+class OwnCloudServer extends PatchBase {
 	function __construct() {
-		parent::__construct('ownCloud GmbH', 'ownCloud', 'https://owncloud.com/download-server/');
+		parent::__construct('ownCloud GmbH', 'ownCloud Server', 'https://owncloud.com/download-server/');
 	}
 	function check() : bool {
 		if ($this->fetch('https://owncloud.com/download-server/'))
