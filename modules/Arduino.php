@@ -2,11 +2,11 @@
 
 class Arduino extends PatchBase {
 	function __construct() {
-		parent::__construct('Arduino AG', 'Arduino IDE', 'https://www.arduino.cc/en/Main/Software');
+		parent::__construct('Arduino AG', 'Arduino IDE', 'https://www.arduino.cc/en/software');
 	}
 	function check() : bool {
-		if ($this->fetch('https://www.arduino.cc/en/Main/Software'))
-			return $this->parse('/<div class="blue-title">[\s]*ARDUINO ([\d\.]+)[\s]*<\/div>/');
+		if ($this->fetch('https://api.github.com/repos/arduino/Arduino/releases/latest', true))
+			return $this->parse_json('tag_name');
 		return false;
 	}
 }
