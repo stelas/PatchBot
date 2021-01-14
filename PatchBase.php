@@ -1,5 +1,7 @@
 <?php
 
+require('HostOption.php');
+
 abstract class PatchBase {
 	protected $patch;
 	protected $data = '';
@@ -17,9 +19,12 @@ abstract class PatchBase {
 	}
 	abstract function check() : bool;
 	protected function fetch(string $url, bool $json = false) : bool {
+		$host = parse_url($url, PHP_URL_HOST);
 		$opt = array('http' => array('user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0'));
+		if (HostOption::get($host))
+			$opt['http'] += array('header' => HostOption::get($host));
 		$ctx = stream_context_create($opt);
-		if ($str = file_get_contents($url, false, $ctx)) {
+		if ($str = @file_get_contents($url, false, $ctx)) {
 			$this->data = $str;
 			if ($json) {
 				if (!($this->data = json_decode($str, true)))
