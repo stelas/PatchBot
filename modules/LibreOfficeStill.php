@@ -2,7 +2,7 @@
 
 class LibreOfficeStill extends PatchBase {
 	function __construct() {
-		parent::__construct('The Document Foundation', 'LibreOffice', 'https://www.libreoffice.org/download/download/');
+		parent::__construct('Document Foundation', 'LibreOffice', 'https://www.libreoffice.org/download/download/');
 		$this->patch->setBranch('Still');
 	}
 	function check() : bool {
