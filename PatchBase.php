@@ -11,6 +11,9 @@ abstract class PatchBase {
 	function __toString() : string {
 		return (string)$this->patch;
 	}
+	function dump() {
+		var_dump($this->data);
+	}
 	function id() : string {
 		return get_class($this);
 	}
@@ -21,8 +24,8 @@ abstract class PatchBase {
 	protected function fetch(string $url, bool $json = false) : bool {
 		$host = parse_url($url, PHP_URL_HOST);
 		$opt = array('http' => array('user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0'));
-		if (HostOption::get($host))
-			$opt['http'] += array('header' => HostOption::get($host));
+		if ($str = HostOption::get($host))
+			$opt['http'] += array('header' => $str);
 		$ctx = stream_context_create($opt);
 		if ($str = @file_get_contents($url, false, $ctx)) {
 			$this->data = $str;
