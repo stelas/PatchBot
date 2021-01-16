@@ -6,7 +6,7 @@ class Blender extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.blender.org/'))
-			return $this->parse('/>Download Blender ([\d\.a-z]+)</');
+			return $this->parse('/>Download Blender ([\d\.]+[a-z]?)</');
 		return false;
 	}
 }
