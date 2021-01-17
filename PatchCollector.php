@@ -22,17 +22,17 @@ if ($db->load()) {
 		$oldVer = $db->find($patch->id())->getVersion();
 		if ($patch->check()) {
 			$newVer = $patch->getPatch()->getVersion();
-			echo "\033[39m" . $patch->id() . ': Version \'' . $newVer . '\' is ';
+			echo $patch->id() . ': Version \'' . $newVer . '\' is ';
 			if (!empty($newVer) && $newVer != $oldVer) {
-				echo "\033[32m" . 'newer than \'' . $oldVer . '\'';
+				echo "\033[32m" . 'newer than \'' . $oldVer . '\'' . "\033[39m";
 				$db->addOrUpdate($patch->getPatch());
 			}
 			else
-				echo "\033[90m" . 'up to date';
-			echo "\033[39m" . '.' . PHP_EOL;
+				echo "\033[90m" . 'up to date' . "\033[39m";
+			echo '.' . PHP_EOL;
 		}
 		else
-			fwrite(STDERR, "\033[31m" . $patch->id() . ': CHECK FAILED!' . "\033[39m" . PHP_EOL);
+			fwrite(STDERR, $patch->id() . ': ' . "\033[31m" . 'CHECK FAILED' . "\033[39m" . '!' . PHP_EOL);
 	}
 	$db->save();
 }
