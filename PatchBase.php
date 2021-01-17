@@ -23,20 +23,31 @@ abstract class PatchBase {
 	abstract function check() : bool;
 	protected function fetch(string $url, bool $json = false) : bool {
 		$host = parse_url($url, PHP_URL_HOST);
-		$opt = array('http' => array('user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0'));
+		/*$opt = array('http' => array('user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0'));
 		if ($str = HostOption::get($host))
 			$opt['http'] += array('header' => $str);
 		$ctx = stream_context_create($opt);
-		if ($str = @file_get_contents($url, false, $ctx)) {
-			$this->data = $str;
-			if ($json) {
-				if (!($this->data = json_decode($str, true)))
-					return false;
-				// get first element only
-				if ($this->array_isMulti($this->data))
-					$this->data = array_shift($this->data);
+		if ($str = @file_get_contents($url, false, $ctx)) {*/
+		if ($ch = curl_init()) {
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0');
+			if ($opt = HostOption::get($host))
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $opt);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+			$str = curl_exec($ch);
+			curl_close($ch);
+			if ($str) {
+				$this->data = $str;
+				if ($json) {
+					if (!($this->data = json_decode($str, true)))
+						return false;
+					// get first element only
+					if ($this->array_isMulti($this->data))
+						$this->data = array_shift($this->data);
+				}
+				return true;
 			}
-			return true;
 		}
 		return false;
 	}
