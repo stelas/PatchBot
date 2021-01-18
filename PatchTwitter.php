@@ -3,7 +3,7 @@
 require('twitter-php/src/twitter.class.php');
 require('PatchObject.php');
 require('Database.php');
-require('TwitterKeys.php');
+require('TwitterKey.php');
 
 use DG\Twitter\Twitter;
 
