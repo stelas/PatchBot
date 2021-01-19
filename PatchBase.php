@@ -11,7 +11,7 @@ abstract class PatchBase {
 	function __toString() : string {
 		return (string)$this->patch;
 	}
-	function dump() {
+	protected function dump() {
 		var_dump($this->data);
 	}
 	function id() : string {
@@ -66,7 +66,7 @@ abstract class PatchBase {
 		}
 		return false;
 	}
-	protected function array_isMulti(array $arr) : bool {
+	private function array_isMulti(array $arr) : bool {
 		foreach ($arr as $val) {
 			if (!is_array($val))
 				return false;
