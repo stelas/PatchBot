@@ -6,7 +6,7 @@ class NextcloudServer extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://nextcloud.com/install/'))
-			return $this->parse('_//download.nextcloud.com/server/releases/nextcloud-([\d\.]+)\.zip_');
+			return $this->parse('_//download\.nextcloud\.com/server/releases/nextcloud-([\d\.]+)\.zip_');
 		return false;
 	}
 }
