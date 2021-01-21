@@ -6,7 +6,7 @@ class PDF24 extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://en.pdf24.org/'))
-			return $this->parse('/<span>PDF24 Creator<\/span>[\s]*<span>([\d\.]+)<\/span>/');
+			return $this->parse('/<span>PDF24 Creator<\/span>\s*<span>([\d\.]+)<\/span>/');
 		return false;
 	}
 }

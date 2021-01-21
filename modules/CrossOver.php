@@ -6,7 +6,7 @@ class CrossOver extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.codeweavers.com/products/more-information/changelog'))
-			return $this->parse('/<b>([\d\.]+)<\/b>[\s]*CrossOver/');
+			return $this->parse('/<b>([\d\.]+)<\/b>\s*CrossOver/');
 		return false;
 	}
 }

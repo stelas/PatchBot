@@ -7,7 +7,7 @@ class ClonezillaAlternative extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://clonezilla.org/downloads.php'))
-			return $this->parse('/<b>alternative stable<\/b>[\s]*-[\s]*<font color=red>([\d]+-[a-z]+)/');
+			return $this->parse('/<b>alternative stable<\/b>\s*-\s*<font color=red>([\d]+-[a-z]+)/');
 		return false;
 	}
 }

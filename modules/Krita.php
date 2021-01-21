@@ -6,7 +6,7 @@ class Krita extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://krita.org/en/download/krita-desktop/'))
-			return $this->parse('/<h3>Download Krita[\s]*([\d\.]+)<\/h3>/');
+			return $this->parse('/<h3>Download Krita\s+([\d\.]+)<\/h3>/');
 		return false;
 	}
 }
