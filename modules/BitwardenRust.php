@@ -1,6 +1,6 @@
 <?php
 
-class Bitwarden_rs extends PatchBase {
+class BitwardenRust extends PatchBase {
 	function __construct() {
 		parent::__construct('Daniel García', 'Bitwarden in Rust', 'https://github.com/dani-garcia/bitwarden_rs');
 	}
