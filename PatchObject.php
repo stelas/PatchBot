@@ -40,7 +40,7 @@ class PatchObject {
 	}
 	function setVersion(string $version, bool $trim = false) {
 		if ($trim) {
-			$version = preg_replace('/^(release-|v)/', '', $version);
+			$version = preg_replace('/^(release-|RELEASE\.|v)/', '', $version);
 		}
 		$this->version = $version;
 	}
