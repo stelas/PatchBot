@@ -32,8 +32,10 @@ $db->sort();
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.dataTables.min.css">
     <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
     <script src="assets/js/jquery.dataTables.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script>
       $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
         $('#list').DataTable();
       });
     </script>
@@ -51,7 +53,7 @@ $db->sort();
             <th>Product</th>
             <th>Branch</th>
             <th>Version</th>
-            <th title="*) or first discovery time">Release Date*</th>
+            <th data-toggle="tooltip" data-placement="top" title="*) or first discovery time">Release Date<sup>*</sup></th>
           </tr>
         </thead>
         <tbody>
@@ -59,13 +61,13 @@ $db->sort();
 
 	for ($i = 0; $i < $db->count(); $i++) {
 		$patch = $db->get($i);
-		echo '<tr>';
+		echo '          <tr>';
 		echo '<td>' . htmlspecialchars($patch->getVendor()) . '</td>';
 		echo '<td><a href="' . htmlspecialchars($patch->getURL()) . '">' . htmlspecialchars($patch->getProduct()) . '</a></td>';
 		echo '<td>' . htmlspecialchars($patch->getBranch()) . '</td>';
 		echo '<td>' . htmlspecialchars($patch->getVersion()) . '</td>';
 		echo '<td>' . date('Y-m-d', $patch->getTimestamp()) . '</td>';
-		echo '</tr>' . "\r\n";
+		echo '</tr>' . PHP_EOL;
 	}
 
 ?>
