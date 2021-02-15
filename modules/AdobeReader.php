@@ -2,7 +2,7 @@
 
 class AdobeReader extends PatchBase {
 	function __construct() {
-		parent::__construct('Adobe', 'Acrobat Reader', 'https://get.adobe.com/reader/');
+		parent::__construct('Adobe', 'Acrobat Reader', 'https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/index.html');
 		$this->patch->setBranch('DC');
 	}
 	function check() : bool {
