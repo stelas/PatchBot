@@ -17,6 +17,7 @@ $db->sort();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="title" content="PatchBot">
+    <meta name="author" content="Steffen Lange">
     <meta name="description" content="Patch Notification Robot provides you the latest update notifications.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.patchbot.de/">
