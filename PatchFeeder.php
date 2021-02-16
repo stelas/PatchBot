@@ -15,9 +15,11 @@ $db->sort();
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
 <atom:link href="https://www.patchbot.de/rss.xml" rel="self" type="application/rss+xml" />
+<language>en-us</language>
 <title>Patch Notification Robot</title>
 <link>https://www.patchbot.de/</link>
 <description>Providing you the latest update notifications.</description>
+<copyright>© Steffen Lange</copyright>
 <?php
 
 	for ($i = 0; $i < $db->count(); $i++) {
