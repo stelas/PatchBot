@@ -75,7 +75,7 @@ $db->sort();
         </tbody>
       </table>
       <div class="text-right">
-        <p><a href="https://www.dateihal.de/cms/imprint">Imprint</a> &amp; <a href="https://www.dateihal.de/cms/privacy">Privacy</a></p>
+        <p>&copy; Steffen Lange | Information are provided without any warranty. | <a href="https://www.dateihal.de/cms/imprint">Imprint</a> | <a href="https://www.dateihal.de/cms/privacy">Privacy</a></p>
       </div>
     </div>
   </body>
