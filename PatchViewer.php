@@ -44,7 +44,7 @@ $db->sort();
   </head>
   <body>
     <div class="container p-5">
-      <h2 class="mb-4"><a class="text-decoration-none" href="https://www.patchbot.de/">Patch Notification Robot</a></h2>
+      <h2 class="mb-4">Patch Notification Robot</h2>
       <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url"><img src="assets/btn_donateCC_LG.gif" alt="Donate" width="147" height="47" /></a></p>
       <p><a href="https://www.patchbot.de/rss.xml"><img src="assets/rss.png" alt="Subscribe" width="24" height="24" /></a> <a href="https://twitter.com/Patchbot_de"><img src="assets/twitter.png" alt="Follow me" width="24" height="24" /></a> <a href="https://github.com/stelas/PatchBot"><img src="assets/github.png" alt="Fork me" width="24" height="24" /></a> Providing you the latest update notifications.</p>
       <table id="list" class="table table-bordered table-hover table-sm" data-order='[[ 4, "desc" ]]' data-page-length='25'>
