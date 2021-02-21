@@ -5,7 +5,7 @@ class PhpMyAdmin extends PatchBase {
 		parent::__construct('phpMyAdmin Contributors', 'phpMyAdmin', 'https://www.phpmyadmin.net/downloads/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/phpmyadmin/phpmyadmin/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/phpmyadmin/phpmyadmin/releases/latest'))
 			return $this->parse_json('name');
 		return false;
 	}

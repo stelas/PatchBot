@@ -5,7 +5,7 @@ class Bootstrap extends PatchBase {
 		parent::__construct('Bootstrap Team', 'Bootstrap', 'https://getbootstrap.com/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/twbs/bootstrap/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/twbs/bootstrap/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

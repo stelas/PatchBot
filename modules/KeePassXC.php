@@ -5,7 +5,7 @@ class KeePassXC extends PatchBase {
 		parent::__construct('KeePassXC Team', 'KeePassXC', 'https://keepassxc.org/download/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/keepassxreboot/keepassxc/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

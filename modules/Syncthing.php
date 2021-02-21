@@ -5,7 +5,7 @@ class Syncthing extends PatchBase {
 		parent::__construct('Syncthing Foundation', 'Syncthing', 'https://syncthing.net/downloads/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/syncthing/syncthing/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/syncthing/syncthing/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

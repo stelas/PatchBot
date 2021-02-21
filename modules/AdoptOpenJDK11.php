@@ -6,7 +6,7 @@ class AdoptOpenJDK11 extends PatchBase {
 		$this->patch->setBranch('JRE 11');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.adoptopenjdk.net/v2/info/releases/openjdk11?release=latest&openjdk_impl=hotspot&type=jre&os=windows&arch=x64', true))
+		if ($this->fetch_json('https://api.adoptopenjdk.net/v2/info/releases/openjdk11?release=latest&openjdk_impl=hotspot&type=jre&os=windows&arch=x64'))
 			return $this->parse_json('openjdk_version');
 		return false;
 	}

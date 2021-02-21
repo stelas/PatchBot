@@ -5,7 +5,7 @@ class MySQLWorkbench extends PatchBase {
 		parent::__construct('Oracle', 'MySQL Workbench', 'https://dev.mysql.com/downloads/workbench/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/mysql/mysql-workbench/tags', true))
+		if ($this->fetch_json('https://api.github.com/repos/mysql/mysql-workbench/tags'))
 			return $this->parse_json('name');
 		return false;
 	}

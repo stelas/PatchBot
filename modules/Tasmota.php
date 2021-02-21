@@ -5,7 +5,7 @@ class Tasmota extends PatchBase {
 		parent::__construct('Theo Arends', 'Tasmota', 'https://github.com/arendst/Tasmota');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/arendst/Tasmota/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/arendst/Tasmota/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

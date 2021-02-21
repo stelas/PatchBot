@@ -5,7 +5,7 @@ class YoutubeDL extends PatchBase {
 		parent::__construct('youtube-dl Authors', 'youtube-dl', 'https://yt-dl.org/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/ytdl-org/youtube-dl/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/ytdl-org/youtube-dl/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

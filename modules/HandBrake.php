@@ -5,7 +5,7 @@ class HandBrake extends PatchBase {
 		parent::__construct('HandBrake Team', 'HandBrake', 'https://handbrake.fr/downloads.php');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/HandBrake/HandBrake/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/HandBrake/HandBrake/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

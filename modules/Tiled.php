@@ -5,7 +5,7 @@ class Tiled extends PatchBase {
 		parent::__construct('Thorbjørn Lindeijer', 'Tiled Map Editor', 'https://www.mapeditor.org/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/bjorn/tiled/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/bjorn/tiled/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

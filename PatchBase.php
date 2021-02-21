@@ -31,10 +31,12 @@ abstract class PatchBase {
 		if ($ch = curl_init()) {
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0');
-			if ($opt = HostOption::get($host))
-				curl_setopt($ch, CURLOPT_HTTPHEADER, $opt);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+			if (!$json)
+				curl_setopt($ch, CURLOPT_HEADER, true);
+			if ($opt = HostOption::get($host))
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $opt);
 			$str = curl_exec($ch);
 			curl_close($ch);
 			if ($str) {
@@ -50,6 +52,9 @@ abstract class PatchBase {
 			}
 		}
 		return false;
+	}
+	protected function fetch_json(string $url) : bool {
+		return $this->fetch($url, true);
 	}
 	protected function parse(string $re) : bool {
 		if ($str = $this->regex_str($re)) {

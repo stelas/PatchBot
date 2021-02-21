@@ -19,7 +19,7 @@ class MyProgram extends PatchBase {
 * Implement ```check()``` method to extract version information from website using this template:
 ```
 function check() : bool {
-	if ($this->fetch('https://www.url.com/' [, true]))
+	if ($this->fetch[_json]('https://www.url.com/'))
 		return $this->parse...
 	return false;
 }

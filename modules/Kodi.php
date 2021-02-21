@@ -5,7 +5,7 @@ class Kodi extends PatchBase {
 		parent::__construct('XBMC Foundation', 'Kodi', 'https://kodi.tv/download');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/xbmc/xbmc/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/xbmc/xbmc/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

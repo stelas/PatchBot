@@ -5,7 +5,7 @@ class Traefik extends PatchBase {
 		parent::__construct('Containous', 'Traefik', 'https://traefik.io/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/containous/traefik/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/containous/traefik/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

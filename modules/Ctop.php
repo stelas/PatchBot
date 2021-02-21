@@ -5,7 +5,7 @@ class Ctop extends PatchBase {
 		parent::__construct('Bradley Cicenas', 'ctop', 'https://ctop.sh/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/bcicen/ctop/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/bcicen/ctop/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

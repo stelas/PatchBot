@@ -5,7 +5,7 @@ class Darktable extends PatchBase {
 		parent::__construct('Darktable Team', 'darktable', 'https://www.darktable.org/install/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/darktable-org/darktable/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/darktable-org/darktable/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}

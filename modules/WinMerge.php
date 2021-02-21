@@ -5,7 +5,7 @@ class WinMerge extends PatchBase {
 		parent::__construct('WinMerge Development Team', 'WinMerge', 'https://winmerge.org/downloads/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.github.com/repos/winmerge/winmerge/releases/latest', true))
+		if ($this->fetch_json('https://api.github.com/repos/winmerge/winmerge/releases/latest'))
 			return $this->parse_json('tag_name');
 		return false;
 	}
