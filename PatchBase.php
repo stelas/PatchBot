@@ -21,40 +21,30 @@ abstract class PatchBase {
 		return $this->patch;
 	}
 	abstract function check() : bool;
-	protected function fetch(string $url, bool $json = false) : bool {
-		$host = parse_url($url, PHP_URL_HOST);
-		/*$opt = array('http' => array('user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0'));
-		if ($str = HostOption::get($host))
-			$opt['http'] += array('header' => $str);
-		$ctx = stream_context_create($opt);
-		if ($str = @file_get_contents($url, false, $ctx)) {*/
-		if ($ch = curl_init()) {
-			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0');
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-			if (!$json)
-				curl_setopt($ch, CURLOPT_HEADER, true);
-			if ($opt = HostOption::get($host))
-				curl_setopt($ch, CURLOPT_HTTPHEADER, $opt);
-			$str = curl_exec($ch);
-			curl_close($ch);
-			if ($str) {
-				$this->data = $str;
-				if ($json) {
-					if (!($this->data = json_decode($str, true)))
-						return false;
-					// get first element only
-					if ($this->array_isMulti($this->data))
-						$this->data = array_shift($this->data);
-				}
-				return true;
-			}
+	protected function fetch(string $url, bool $text = true) : bool {
+		// HTTP GET
+		if ($text)
+			$str = $this->curl($url);
+		// HTTP HEAD
+		else
+			$str = $this->curl($url, array(array(CURLOPT_HEADER, true), array(CURLOPT_NOBODY, true)));
+		if ($str) {
+			$this->data = $str;
+			return true;
 		}
 		return false;
 	}
 	protected function fetch_json(string $url) : bool {
-		return $this->fetch($url, true);
+		$str = $this->curl($url);
+		if ($str) {
+			if (!($this->data = json_decode($str, true)))
+				return false;
+			// get first element only
+			if ($this->array_isMulti($this->data))
+				$this->data = array_shift($this->data);
+			return true;
+		}
+		return false;
 	}
 	protected function parse(string $re) : bool {
 		if ($str = $this->regex_str($re)) {
@@ -78,12 +68,6 @@ abstract class PatchBase {
 		}
 		return true;
 	}
-	/*protected function array_extract(string $search) {
-		foreach ($this->data as $val) {
-			if (array_search($search, array_values($val)))
-				$this->data = $val;
-		}
-	}*/
 	protected function str_crop(string $head = '', string $tail = '') {
 		if (!empty($head)) {
 			if ($str = strstr($this->data, $head))
@@ -93,6 +77,23 @@ abstract class PatchBase {
 			if ($str = strstr($this->data, $tail, true))
 				$this->data = $str;
 		}
+	}
+	private function curl(string $url, array $opts = array()) {
+		if ($ch = curl_init()) {
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0');
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+			foreach ($opts as $opt)
+				curl_setopt($ch, $opt[0], $opt[1]);
+			if ($opt = HostOption::get(parse_url($url, PHP_URL_HOST)))
+				curl_setopt($ch, CURLOPT_HTTPHEADER, $opt);
+			$str = curl_exec($ch);
+			curl_close($ch);
+			if ($str)
+				return $str;
+		}
+		return false;
 	}
 	private function regex(string $pattern) {
 		if (!preg_match($pattern, $this->data, $m))
