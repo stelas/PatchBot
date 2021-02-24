@@ -81,7 +81,7 @@ abstract class PatchBase {
 	private function curl(string $url, array $opts = array()) {
 		if ($ch = curl_init()) {
 			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:1.0) Gecko/20200101 Patchbot/1.0');
+			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; Patchbot/1.0; +http://www.patchbot.de/)');
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 			foreach ($opts as $opt)
