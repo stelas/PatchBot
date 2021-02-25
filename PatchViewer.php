@@ -37,7 +37,9 @@ $db->sort();
     <script>
       $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
-        $('#list').DataTable();
+        $('#patches').DataTable( {
+          stateSave: true
+        } );
       });
     </script>
     <title>PatchBot</title>
@@ -47,14 +49,14 @@ $db->sort();
       <h2 class="mb-4">Patch Notification Robot</h2>
       <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url"><img src="assets/btn_donateCC_LG.gif" alt="Donate" width="147" height="47" /></a></p>
       <p><a href="https://www.patchbot.de/rss.xml"><img src="assets/rss.png" alt="Subscribe" width="24" height="24" /></a> <a href="https://twitter.com/Patchbot_de"><img src="assets/twitter.png" alt="Follow me" width="24" height="24" /></a> <a href="https://github.com/stelas/PatchBot"><img src="assets/github.png" alt="Fork me" width="24" height="24" /></a> Providing you the latest update notifications.</p>
-      <table id="list" class="table table-bordered table-hover table-sm" data-order='[[ 4, "desc" ]]' data-page-length='25'>
+      <table id="patches" class="table table-bordered table-hover table-sm" data-order='[[ 4, "desc" ]]' data-page-length='25'>
         <thead class="thead-dark">
           <tr>
             <th>Vendor</th>
             <th>Product</th>
             <th>Branch</th>
             <th>Version</th>
-            <th data-toggle="tooltip" data-placement="top" title="*) or first discovery time">Release Date<sup>*</sup></th>
+            <th data-toggle="tooltip" title="*) or first discovery time">Release Date<sup>*</sup></th>
           </tr>
         </thead>
         <tbody>
@@ -63,10 +65,10 @@ $db->sort();
 	for ($i = 0; $i < $db->count(); $i++) {
 		$patch = $db->get($i);
 		echo '          <tr>';
-		echo '<td>' . htmlspecialchars($patch->getVendor()) . '</td>';
-		echo '<td><a href="' . htmlspecialchars($patch->getURL()) . '">' . htmlspecialchars($patch->getProduct()) . '</a></td>';
-		echo '<td>' . htmlspecialchars($patch->getBranch()) . '</td>';
-		echo '<td>' . htmlspecialchars($patch->getVersion()) . '</td>';
+		echo '<td>' . htmlentities($patch->getVendor()) . '</td>';
+		echo '<td><a href="' . htmlspecialchars($patch->getURL()) . '">' . htmlentities($patch->getProduct()) . '</a></td>';
+		echo '<td>' . htmlentities($patch->getBranch()) . '</td>';
+		echo '<td>' . htmlentities($patch->getVersion()) . '</td>';
 		echo '<td>' . date('Y-m-d', $patch->getTimestamp()) . '</td>';
 		echo '</tr>' . PHP_EOL;
 	}
