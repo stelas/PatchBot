@@ -19,7 +19,7 @@ $db->sort();
 <title>Patch Notification Robot</title>
 <link>https://www.patchbot.de/</link>
 <description>Providing you the latest update notifications.</description>
-<copyright>© Steffen Lange</copyright>
+<copyright>© <?php echo date('Y'); ?> Steffen Lange</copyright>
 <?php
 
 	for ($i = 0; $i < $db->count(); $i++) {
