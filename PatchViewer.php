@@ -31,7 +31,7 @@ $db->sort();
     <meta property="twitter:image" content="https://www.patchbot.de/assets/patchbot.jpg">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/jquery.dataTables.min.css">
-    <script src="assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="assets/js/jquery-3.6.0.slim.min.js"></script>
     <script src="assets/js/jquery.dataTables.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script>
