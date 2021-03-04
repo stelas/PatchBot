@@ -77,9 +77,7 @@ $db->sort();
         </tbody>
       </table>
       <hr>
-      <div class="text-end">
-        <p>&copy; <?php echo date('Y'); ?> <a href="https://steffen.lange.tl/">Steffen Lange</a> | Information are provided without any warranty. | <a href="https://www.dateihal.de/cms/imprint">Imprint</a> | <a href="https://www.dateihal.de/cms/privacy">Privacy</a></p>
-      </div>
+      <p class="text-end">&copy; <?php echo date('Y'); ?> <a href="https://steffen.lange.tl/">Steffen Lange</a> | Information are provided without any warranty. | <a href="https://www.dateihal.de/cms/imprint">Imprint</a> | <a href="https://www.dateihal.de/cms/privacy">Privacy</a></p>
     </div>
   </body>
 </html>
