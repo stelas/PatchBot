@@ -20,6 +20,7 @@ $db->sort();
 <link>https://www.patchbot.de/</link>
 <description>Providing you the latest update notifications.</description>
 <copyright>© <?php echo date('Y'); ?> Steffen Lange</copyright>
+<pubDate><?php echo date(DATE_RSS); ?></pubDate>
 <?php
 
 	for ($i = 0; $i < $db->count(); $i++) {
