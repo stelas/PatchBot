@@ -19,7 +19,7 @@ $db->sort();
 <title>Patch Notification Robot</title>
 <link>https://www.patchbot.de/</link>
 <description>Providing you the latest update notifications.</description>
-<copyright>© <?php echo date('Y'); ?> Steffen Lange</copyright>
+<copyright>© 2019-<?php echo date('y'); ?> Steffen Lange</copyright>
 <pubDate><?php echo date(DATE_RSS); ?></pubDate>
 <?php
 
