@@ -6,7 +6,7 @@ class Inkscape extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://inkscape.org/release/'))
-			return $this->parse('/<title>Download Inkscape ([\d\.]+)/');
+			return $this->parse('/<h1>Inkscape ([\d\.]+)<\/h1>/');
 		return false;
 	}
 }
