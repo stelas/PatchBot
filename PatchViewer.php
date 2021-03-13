@@ -78,7 +78,8 @@ $db->sort();
         </tbody>
       </table>
       <hr>
-      <p class="text-end">&copy; 2019-<?php echo date('y'); ?> <a href="https://steffen.lange.tl/">Steffen Lange</a> | Information are provided without any warranty. | <a href="https://www.dateihal.de/cms/imprint">Imprint</a> | <a href="https://www.dateihal.de/cms/privacy">Privacy</a></p>
+      <p class="text-end">Information are provided without any warranty. Trademarks are property of their respective owners.<br>
+      &copy; 2019-<?php echo date('y'); ?> <a href="https://steffen.lange.tl/">Steffen Lange</a> | <a href="https://www.dateihal.de/cms/imprint">Imprint</a> | <a href="https://www.dateihal.de/cms/privacy">Privacy</a></p>
     </div>
   </body>
 </html>
