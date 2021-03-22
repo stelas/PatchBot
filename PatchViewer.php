@@ -71,7 +71,7 @@ $db->sort();
 		echo '<td>' . htmlentities($patch->getBranch()) . '</td>';
 		echo '<td>' . htmlentities($patch->getVersion()) . '</td>';
 		echo '<td>' . date('Y-m-d', $patch->getTimestamp()) . '</td>';
-		echo '</tr>' . PHP_EOL;
+		echo '</tr>' . "\n";
 	}
 
 ?>
