@@ -33,7 +33,7 @@ $db->sort();
 		echo '<link>' . htmlspecialchars($patch->getURL()) . '</link>';
 		echo '<pubDate>' . date(DATE_RSS, $patch->getTimestamp()) . '</pubDate>';
 		echo '<guid isPermaLink="false">' . hash('sha256', $patch) . '</guid>';
-		echo '</item>' . "\r\n";
+		echo '</item>' . "\n";
 	}
 
 ?>
