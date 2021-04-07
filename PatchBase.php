@@ -46,6 +46,17 @@ abstract class PatchBase {
 		}
 		return false;
 	}
+	protected function fetch_yaml(string $url) : bool {
+		$str = $this->curl($url);
+		if ($str) {
+			if (!($this->data = yaml_parse($str)))
+				return false;
+			//if ($this->array_isMulti($this->data))
+			//	$this->data = array_shift($this->data);
+			return true;
+		}
+		return false;
+	}
 	protected function parse(string $re) : bool {
 		if ($str = $this->regex_str($re)) {
 			$this->patch->setVersion($str, true);
@@ -60,6 +71,9 @@ abstract class PatchBase {
 			return $this->parse($re);
 		}
 		return false;
+	}
+	protected function parse_yaml(string $key, string $re = '/(.*)/') : bool {
+		return $this->parse_json($key, $re);
 	}
 	private function array_isMulti(array $arr) : bool {
 		foreach ($arr as $val) {
