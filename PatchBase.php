@@ -98,6 +98,7 @@ abstract class PatchBase {
 			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; Patchbot/1.0; +http://www.patchbot.de/)');
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
 			foreach ($opts as $opt)
 				curl_setopt($ch, $opt[0], $opt[1]);
 			if ($opt = HostOption::get(parse_url($url, PHP_URL_HOST)))
