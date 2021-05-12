@@ -5,8 +5,8 @@ class Tftpd32 extends PatchBase {
 		parent::__construct('Philippe Jounin', 'Tftpd64', 'https://tftpd32.jounin.net/tftpd32_download.html');
 	}
 	function check() : bool {
-		if ($this->fetch('https://tftpd32.jounin.net/tftpd32_news.html'))
-			return $this->parse('/<td>Version ([\d\.]+)<\/td>/');
+		if ($this->fetch('https://pjo2.github.io/tftpd64/'))
+			return $this->parse('_/[Tt]ftpd64-([\d\.]+)-setup\.exe_');
 		return false;
 	}
 }
