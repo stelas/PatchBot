@@ -57,6 +57,15 @@ abstract class PatchBase {
 		}
 		return false;
 	}
+	protected function fetch_gzip(string $url) : bool {
+		$str = $this->curl($url);
+		if ($str) {
+			if (!($this->data = gzdecode($str)))
+				return false;
+			return true;
+		}
+		return false;
+	}
 	protected function parse(string $re) : bool {
 		if ($str = $this->regex_str($re)) {
 			$this->patch->setVersion($str, true);
