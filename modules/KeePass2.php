@@ -6,8 +6,8 @@ class KeePass2 extends PatchBase {
 		$this->patch->setBranch('2.x');
 	}
 	function check() : bool {
-		if ($this->fetch('https://keepass.info/download.html'))
-			return $this->parse('_sourceforge\.net/projects/keepass/files/KeePass%202\.x/[\d\.]+/KeePass-([\d\.]+)-Setup\.exe_');
+		if ($this->fetch_gzip('https://www.dominik-reichl.de/update/version2x.txt.gz'))
+			return $this->parse('/KeePass:([\d\.]+)/');
 		return false;
 	}
 }
