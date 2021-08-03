@@ -2,7 +2,8 @@
 
 class HostOption {
 	private static $values = array(
-		'api.github.com' => array('Authorization: token TOKEN')
+		'api.github.com' => array('Authorization: token xxx'),
+		'gitlab.com' => array('PRIVATE-TOKEN: xxx')
 		);
 	public static function get(string $key) {
 		return array_key_exists($key, self::$values) ? self::$values[$key] : false;
