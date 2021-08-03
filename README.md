@@ -2,6 +2,7 @@
 Patch Notification Robot: Providing you the latest update notifications.
 
 ## Installation
+Remove ```.example``` suffix from files and modify configuration to your needs.
 Run periodically ```php PatchCollector.php``` to collect the latest product versions from vendor websites. Limit requests, so web servers will not overload.
 For data export to webpage, RSS feed and Twitter use output of ```PatchViewer.php```, ```PatchFeeder.php``` or ```PatchTwitter.php```. Twitter requires a separate [developer registration](https://developer.twitter.com/).
 
