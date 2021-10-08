@@ -5,8 +5,8 @@ class Blender extends PatchBase {
 		parent::__construct('Blender Foundation', 'Blender', 'https://www.blender.org/download/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://www.blender.org/download/'))
-			return $this->parse('/>Changelog for Blender ([\d\.]+[a-z]?)</');
+		if ($this->fetch('https://www.blender.org/'))
+			return $this->parse('/>Blender ([\d\.]+)( LTS)?</');
 		return false;
 	}
 }
