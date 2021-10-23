@@ -74,10 +74,12 @@ abstract class PatchBase {
 		return false;
 	}
 	protected function parse_json(string $key, string $re = '/(.*)/') : bool {
-		$flat = iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->data)));
-		if (!empty($flat[$key])) {
-			$this->data = $flat[$key];
-			return $this->parse($re);
+		$it = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($this->data));
+		foreach ($it as $k => $v) {
+			if ($key == $k) {
+				$this->data = $v;
+				return $this->parse($re);
+			}
 		}
 		return false;
 	}
