@@ -2,11 +2,11 @@
 
 class Ghostscript extends PatchBase {
 	function __construct() {
-		parent::__construct('Artifex Software', 'Ghostscript', 'https://www.ghostscript.com/download/gsdnld.html');
+		parent::__construct('Artifex Software', 'Ghostscript', 'https://www.ghostscript.com/releases/gsdnld.html');
 	}
 	function check() : bool {
-		if ($this->fetch('https://www.ghostscript.com/download/gsdnld.html'))
-			return $this->parse('/<a name="SRC"><\/a>Ghostscript ([\d\.]+) Source/');
+		if ($this->fetch('https://ghostscript.com/releases/index.html'))
+			return $this->parse('/The latest release is Ghostscript ([\d\.]+)/');
 		return false;
 	}
 }
