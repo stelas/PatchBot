@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 
 require('twitter-php/src/twitter.class.php');
