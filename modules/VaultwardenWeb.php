@@ -1,8 +1,8 @@
 <?php
 
-class BitwardenWeb extends PatchBase {
+class VaultwardenWeb extends PatchBase {
 	function __construct() {
-		parent::__construct('Daniel García', 'Bitwarden in Rust', 'https://github.com/dani-garcia/bitwarden_rs');
+		parent::__construct('Daniel García', 'Vaultwarden', 'https://github.com/dani-garcia/bw_web_builds');
 		$this->patch->setBranch('Web Vault');
 	}
 	function check() : bool {
