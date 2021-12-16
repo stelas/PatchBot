@@ -21,19 +21,21 @@ $db->sort();
 <link>https://www.patchbot.de/</link>
 <description>Providing you the latest update notifications.</description>
 <copyright>© 2019-<?php echo date('y'); ?> Steffen Lange</copyright>
-<pubDate><?php echo date(DATE_RSS); ?></pubDate>
+<lastBuildDate><?php echo date(DATE_RSS); ?></lastBuildDate>
 <?php
 
 	for ($i = 0; $i < $db->count(); $i++) {
 		$patch = $db->get($i);
 		echo '<item>';
-		echo '<title>' . htmlspecialchars($patch->getVendor()) . ' released ' . htmlspecialchars($patch->getProduct());
+		$s = htmlspecialchars($patch->getVendor()) . ' released ' . htmlspecialchars($patch->getProduct());
 		if (!empty($patch->getBranch()))
-			echo ' ' . htmlspecialchars($patch->getBranch());
-		echo ' version ' . htmlspecialchars($patch->getVersion()) . '.</title>';
+			$s .= ' ' . htmlspecialchars($patch->getBranch());
+		$s .= ' version ' . htmlspecialchars($patch->getVersion()) . '.';
+		echo '<title>' . $s . '</title>';
+		echo '<description>' . $s . '</description>';
 		echo '<link>' . htmlspecialchars($patch->getURL()) . '</link>';
 		echo '<pubDate>' . date(DATE_RSS, $patch->getTimestamp()) . '</pubDate>';
-		echo '<guid isPermaLink="false">' . hash('sha256', $patch) . '</guid>';
+		echo '<guid isPermaLink="false">' . substr(hash('sha256', $patch), 0, 10) . '</guid>';
 		echo '</item>' . "\n";
 	}
 
