@@ -6,7 +6,7 @@ class SysRescCd extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('http://www.system-rescue-cd.org/Detailed-packages-list/'))
-			return $this->parse('/<strong>SystemRescueCd-([\d\.]+)<\/strong>/');
+			return $this->parse('/<strong>SystemRescue-([\d\.]+)<\/strong>/');
 		return false;
 	}
 }
