@@ -1,9 +1,9 @@
 <?php
 
-class MikroTikRouterOSLTS extends PatchBase {
+class MikroTikRouterOS6LTS extends PatchBase {
 	function __construct() {
 		parent::__construct('MikroTik', 'RouterOS', 'https://mikrotik.com/download');
-		$this->patch->setBranch('Long-term');
+		$this->patch->setBranch('v6 Long-term');
 	}
 	function check() : bool {
 		if ($this->fetch('https://mikrotik.com/download')) {
