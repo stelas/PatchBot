@@ -6,7 +6,7 @@ class Memtest extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.memtest.org/'))
-			return $this->parse('/>LATEST\s+VERSION : ([\d\.]+[a-z]?)</');
+			return $this->parse('/LATEST\s+VERSION : ([\d\.]+[a-z]?)/');
 		return false;
 	}
 }
