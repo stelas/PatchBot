@@ -2,7 +2,7 @@
 
 class RustDeskServer extends PatchBase {
 	function __construct() {
-		parent::__construct('Purslane Ltd', 'RustDesk', 'https://rustdesk.com/');
+		parent::__construct('Purslane Ltd', 'RustDesk', 'https://rustdesk.com/server/');
 		$this->patch->setBranch('Server');
 	}
 	function check() : bool {
