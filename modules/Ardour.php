@@ -2,11 +2,11 @@
 
 class Ardour extends PatchBase {
 	function __construct() {
-		parent::__construct('Paul Davis', 'Ardour', 'https://ardour.org/download.html');
+		parent::__construct('Paul Davis', 'Ardour', 'https://community.ardour.org/download');
 	}
 	function check() : bool {
-		if ($this->fetch('https://community.ardour.org/download'))
-			return $this->parse('/set_release\("([\d\.]+)"\)/');
+		if ($this->fetch('https://community.ardour.org/download?type=source'))
+			return $this->parse('/Ardour ([\d\.]+)/');
 		return false;
 	}
 }
