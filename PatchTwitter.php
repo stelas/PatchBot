@@ -9,7 +9,7 @@ require('TwitterKey.php');
 use DG\Twitter\Twitter;
 
 function timestamp() {
-	$f = fopen(__DIR__ . '/timestamp.dat', 'a+');
+	$f = fopen(__DIR__ . '/timestamp-twitter.dat', 'a+');
 	flock($f, LOCK_EX);
 	$t = fgets($f);
 	ftruncate($f, 0);
