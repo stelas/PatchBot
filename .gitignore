@@ -1,5 +1,6 @@
 /HostOption.php
 /TwitterKey.php
+/MastodonKey.php
 /db.json
-/timestamp.dat
+/timestamp-*.dat
 /modules_test/*

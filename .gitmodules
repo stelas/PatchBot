@@ -1,3 +1,6 @@
 [submodule "twitter-php"]
 	path = twitter-php
 	url = https://github.com/dg/twitter-php.git
+[submodule "MastodonBotPHP"]
+	path = MastodonBotPHP
+	url = https://github.com/Eleirbag89/MastodonBotPHP.git
