@@ -5,8 +5,8 @@ class NextcloudServer extends PatchBase {
 		parent::__construct('Nextcloud GmbH', 'Nextcloud Server', 'https://nextcloud.com/install/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://nextcloud.com/install/'))
-			return $this->parse('_//download\.nextcloud\.com/server/releases/nextcloud-([\d\.]+)\.zip_');
+		if ($this->fetch_json('https://api.github.com/repos/nextcloud/server/releases/latest'))
+			return $this->parse_json('tag_name');
 		return false;
 	}
 }
