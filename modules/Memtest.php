@@ -5,8 +5,8 @@ class Memtest extends PatchBase {
 		parent::__construct('Samuel Demeulemeester', 'Memtest86+', 'https://www.memtest.org/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://www.memtest.org/'))
-			return $this->parse('/LATEST\s+VERSION : ([\d\.]+[a-z]?)/');
+		if ($this->fetch_json('https://api.github.com/repos/memtest86plus/memtest86plus/tags'))
+			return $this->parse_json('name');
 		return false;
 	}
 }
