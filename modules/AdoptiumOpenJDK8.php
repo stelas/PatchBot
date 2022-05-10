@@ -2,7 +2,7 @@
 
 class AdoptiumOpenJDK8 extends PatchBase {
 	function __construct() {
-		parent::__construct('Eclipse Foundation', 'Adoptium OpenJDK', 'https://adoptium.net/releases.html?variant=openjdk8&jvmVariant=hotspot');
+		parent::__construct('Eclipse Foundation', 'Adoptium OpenJDK', 'https://adoptium.net/de/temurin/releases');
 		$this->patch->setBranch('Temurin 8');
 	}
 	function check() : bool {
