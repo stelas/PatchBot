@@ -6,7 +6,7 @@ class VirtualBox extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.virtualbox.org/wiki/Downloads'))
-			return $this->parse('_//download\.virtualbox\.org/virtualbox/[\d\.]+/VirtualBox-([\d\.-]+)-Win\.exe_');
+			return $this->parse('_//download\.virtualbox\.org/virtualbox/[\d\.]+/VirtualBox-([\d\.]+[a-z]?-[\d]+)-Win\.exe_');
 		return false;
 	}
 }
