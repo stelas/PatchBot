@@ -6,7 +6,7 @@ class CitrixWorkspaceApp extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.citrix.com/downloads/workspace-app/windows/workspace-app-for-windows-latest.html'))
-			return $this->parse('/<p>Version:&nbsp;([\d\.]+) ?\([\d\.]+\)<\/p>/');
+			return $this->parse('/<p>Version: ([\d\.]+) ?\([\d\.]+\)<\/p>/');
 		return false;
 	}
 }
