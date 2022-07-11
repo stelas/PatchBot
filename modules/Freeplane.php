@@ -2,11 +2,11 @@
 
 class Freeplane extends PatchBase {
 	function __construct() {
-		parent::__construct('Freeplane Team', 'Freeplane', 'https://www.freeplane.org/wiki/index.php/Home');
+		parent::__construct('Freeplane Team', 'Freeplane', 'https://docs.freeplane.org/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://www.freeplane.org/wiki/index.php/Home'))
-			return $this->parse('/\(this downloads the stable version ([\d\.]+)\)/');
+		if ($this->fetch_json('https://sourceforge.net/projects/freeplane/best_release.json'))
+			return $this->parse_json('filename', '/-([\d\.]+)\.[a-z]+$/');
 		return false;
 	}
 }
