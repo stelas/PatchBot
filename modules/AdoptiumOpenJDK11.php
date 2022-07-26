@@ -2,7 +2,7 @@
 
 class AdoptiumOpenJDK11 extends PatchBase {
 	function __construct() {
-		parent::__construct('Eclipse Foundation', 'Adoptium OpenJDK', 'https://adoptium.net/de/temurin/releases');
+		parent::__construct('Eclipse Foundation', 'Adoptium OpenJDK', 'https://adoptium.net/de/temurin/releases/?version=11');
 		$this->patch->setBranch('Temurin 11');
 	}
 	function check() : bool {
