@@ -7,7 +7,7 @@ class FirefoxTranslations extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://addons.mozilla.org/en-US/firefox/addon/firefox-translations/'))
-			return $this->parse('/"version":"([\d\.a-z]+)"/');
+			return $this->parse('/"version":"([\d\.]+)(buildid.*)?"/');
 		return false;
 	}
 }
