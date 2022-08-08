@@ -6,7 +6,7 @@ class DOSBoxX extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch_json('https://api.github.com/repos/joncampbell123/dosbox-x/releases/latest'))
-			return $this->parse_json('tag_name', '/dosbox-x-v(.+)/');
+			return $this->parse_json('tag_name', '/-v(.+)$/');
 		return false;
 	}
 }
