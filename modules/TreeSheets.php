@@ -7,7 +7,7 @@ class TreeSheets extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch_json('https://api.github.com/repos/aardappel/treesheets/releases/latest'))
-			return $this->parse_json('target_commitish', '/(.{7})/');
+			return $this->parse_json('tag_name');
 		return false;
 	}
 }
