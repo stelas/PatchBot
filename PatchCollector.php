@@ -24,9 +24,10 @@ if (!$db->load()) {
 
 foreach ($list as $patch) {
 	$oldVer = $db->find($patch->id())->getVersion();
+	echo $patch->id() . ': ';
 	if ($patch->check()) {
 		$newVer = $patch->getPatch()->getVersion();
-		echo $patch->id() . ': Version \'' . $newVer . '\' is ';
+		echo 'Version \'' . $newVer . '\' is ';
 		if (!empty($newVer) && $newVer != $oldVer) {
 			echo "\033[32m" . 'newer than \'' . $oldVer . '\'' . "\033[39m";
 			$db->addOrUpdate($patch->getPatch());
@@ -36,7 +37,7 @@ foreach ($list as $patch) {
 		echo '.' . PHP_EOL;
 	}
 	else
-		fwrite(STDERR, $patch->id() . ': ' . "\033[31m" . 'CHECK FAILED' . "\033[39m" . '!' . PHP_EOL);
+		fwrite(STDERR, "\033[31m" . 'CHECK FAILED' . "\033[39m" . '!' . PHP_EOL);
 }
 $db->save();
 
