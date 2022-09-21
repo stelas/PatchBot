@@ -5,8 +5,8 @@ class Minidlna extends PatchBase {
 		parent::__construct('Justin Maggard', 'ReadyMedia', 'https://sourceforge.net/projects/minidlna/files/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://sourceforge.net/projects/minidlna/files/latest/download'))
-			return $this->parse('/<div class="file-name">\s*minidlna-([\d\.]+)\.tar\.gz\s*<\/div>/');
+		if ($this->fetch_json('https://sourceforge.net/projects/minidlna/best_release.json'))
+			return $this->parse_json('filename', '/^\/minidlna\/(.+)\//');
 		return false;
 	}
 }

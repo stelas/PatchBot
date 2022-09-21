@@ -5,8 +5,8 @@ class Avidemux extends PatchBase {
 		parent::__construct('Mean', 'Avidemux', 'http://avidemux.sourceforge.net/download.html');
 	}
 	function check() : bool {
-		if ($this->fetch('http://avidemux.sourceforge.net/download.html'))
-			return $this->parse('/avidemux_([\d\.]+)\.tar\.gz/');
+		if ($this->fetch_json('https://sourceforge.net/projects/avidemux/best_release.json'))
+			return $this->parse_json('filename', '/^\/avidemux\/(.+)\//');
 		return false;
 	}
 }
