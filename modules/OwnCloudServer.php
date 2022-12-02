@@ -5,8 +5,8 @@ class OwnCloudServer extends PatchBase {
 		parent::__construct('ownCloud GmbH', 'ownCloud Server', 'https://owncloud.com/download-server/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://owncloud.com/download-server/'))
-			return $this->parse('/Version: <strong>ownCloud Server ([\d\.]+)<\/strong>/');
+		if ($this->fetch('https://owncloud.com/changelog/server/'))
+			return $this->parse('/Changelog for ownCloud Core \[([\d\.]+)\]/');
 		return false;
 	}
 }
