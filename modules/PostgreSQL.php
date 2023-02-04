@@ -5,7 +5,7 @@ class PostgreSQL extends PatchBase {
 		parent::__construct('PostgreSQL Global Development Group', 'PostgreSQL', 'https://www.postgresql.org/download/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://www.postgresql.org/ftp/latest/', false))
+		if ($this->fetch_header('https://www.postgresql.org/ftp/latest/'))
 			return $this->parse('/\/ftp\/source\/v([\d\.]+)/');
 		return false;
 	}

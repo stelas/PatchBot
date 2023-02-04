@@ -5,7 +5,7 @@ class Zoom extends PatchBase {
 		parent::__construct('Zoom Video Communications', 'Zoom', 'https://zoom.us/download');
 	}
 	function check() : bool {
-		if ($this->fetch('https://zoom.us/client/latest/ZoomInstaller.exe', false))
+		if ($this->fetch_header('https://zoom.us/client/latest/ZoomInstaller.exe'))
 			return $this->parse('/\/prod\/([\d\.]+)\/ZoomInstaller\.exe/');
 		return false;
 	}

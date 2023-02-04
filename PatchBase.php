@@ -21,18 +21,20 @@ abstract class PatchBase {
 		return $this->patch;
 	}
 	abstract function check() : bool;
-	protected function fetch(string $url, bool $text = true) : bool {
-		// HTTP GET
-		if ($text)
-			$str = $this->curl($url);
-		// HTTP HEAD
-		else
-			$str = $this->curl($url, array(array(CURLOPT_HEADER, true), array(CURLOPT_NOBODY, true)));
+	protected function fetch(string $url) : bool {
+		$str = $this->curl($url);
 		if ($str) {
 			$this->data = $str;
 			return true;
 		}
 		return false;
+	}
+	protected function fetch_header(string $url) : bool {
+		$str = $this->curl($url, array(array(CURLOPT_HEADER, true), array(CURLOPT_NOBODY, true)));
+		if ($str) {
+			$this->data = $str;
+			return true;
+		}
 	}
 	protected function fetch_json(string $url) : bool {
 		$str = $this->curl($url);
