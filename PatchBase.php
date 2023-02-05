@@ -21,23 +21,23 @@ abstract class PatchBase {
 		return $this->patch;
 	}
 	abstract function check() : bool;
-	protected function fetch(string $url) : bool {
-		$str = $this->curl($url);
+	protected function fetch(string $url, array $opts = array()) : bool {
+		$str = $this->curl($url, $opts);
 		if ($str) {
 			$this->data = $str;
 			return true;
 		}
 		return false;
 	}
-	protected function fetch_header(string $url) : bool {
-		$str = $this->curl($url, array(array(CURLOPT_HEADER, true), array(CURLOPT_NOBODY, true)));
+	protected function fetch_header(string $url, array $opts = array()) : bool {
+		$str = $this->curl($url, array_merge($opts, array('CURLOPT_HEADER' => true, 'CURLOPT_NOBODY' => true)));
 		if ($str) {
 			$this->data = $str;
 			return true;
 		}
 	}
-	protected function fetch_json(string $url) : bool {
-		$str = $this->curl($url);
+	protected function fetch_json(string $url, array $opts = array()) : bool {
+		$str = $this->curl($url, $opts);
 		if ($str) {
 			if (!($this->data = json_decode($str, true)))
 				return false;
@@ -48,8 +48,8 @@ abstract class PatchBase {
 		}
 		return false;
 	}
-	protected function fetch_yaml(string $url) : bool {
-		$str = $this->curl($url);
+	protected function fetch_yaml(string $url, array $opts = array()) : bool {
+		$str = $this->curl($url, $opts);
 		if ($str) {
 			if (!($this->data = yaml_parse($str)))
 				return false;
@@ -59,8 +59,8 @@ abstract class PatchBase {
 		}
 		return false;
 	}
-	protected function fetch_gzip(string $url) : bool {
-		$str = $this->curl($url);
+	protected function fetch_gzip(string $url, array $opts = array()) : bool {
+		$str = $this->curl($url, $opts);
 		if ($str) {
 			if (!($this->data = gzdecode($str)))
 				return false;
@@ -105,15 +105,15 @@ abstract class PatchBase {
 				$this->data = $str;
 		}
 	}
-	private function curl(string $url, array $opts = array()) {
+	private function curl(string $url, array $opts) {
 		if ($ch = curl_init()) {
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (compatible; Patchbot/1.0; +http://www.patchbot.de/)');
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-			foreach ($opts as $opt)
-				curl_setopt($ch, $opt[0], $opt[1]);
+			foreach ($opts as $key => $val)
+				curl_setopt($ch, constant($key), $val);
 			if ($opt = HostOption::get(parse_url($url, PHP_URL_HOST)))
 				curl_setopt($ch, CURLOPT_HTTPHEADER, $opt);
 			$str = curl_exec($ch);
