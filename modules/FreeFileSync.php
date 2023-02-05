@@ -5,7 +5,7 @@ class FreeFileSync extends PatchBase {
 		parent::__construct('Zenju', 'FreeFileSync', 'https://freefilesync.org/download.php');
 	}
 	function check() : bool {
-		if ($this->fetch('https://api.freefilesync.org/latest_version'))
+		if ($this->fetch('https://api.freefilesync.org/latest_version', array('CURLOPT_USERAGENT' => 'FFS-Update-Check')))
 			return $this->parse('/([\d\.]+)/');
 		return false;
 	}
