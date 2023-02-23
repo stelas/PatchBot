@@ -20,13 +20,14 @@ class MyProgram extends PatchBase {
 * Implement ```check()``` method to extract version information from website using this template:
 ```
 function check() : bool {
-	if ($this->fetch[_json]('https://www.url.com/'))
+	if ($this->fetch[_json|_yaml]('https://www.url.com/'))
 		return $this->parse...
 	return false;
 }
 ```
 * Currently available parser functions for JSON and RegEx:
   * ```parse_json(string)```
+  * ```parse_yaml(string)```
   * ```parse(string)```
 
 [![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WYQZCVJPVSS5L&source=url)
