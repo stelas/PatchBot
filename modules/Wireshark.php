@@ -6,7 +6,7 @@ class Wireshark extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.wireshark.org/download.html'))
-			return $this->parse('/Stable Release \(([\d\.]+)\)/');
+			return $this->parse('/Stable Release: ([\d\.]+)/');
 		return false;
 	}
 }
