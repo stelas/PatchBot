@@ -35,6 +35,7 @@ abstract class PatchBase {
 			$this->data = $str;
 			return true;
 		}
+		return false;
 	}
 	protected function fetch_json(string $url, array $opts = array()) : bool {
 		$str = $this->curl($url, $opts);
