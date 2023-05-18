@@ -6,7 +6,7 @@ class SevenZip extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.7-zip.org/download.html'))
-			return $this->parse('/Download 7-Zip ([\d\.]+) \(/');
+			return $this->parse('/Download 7-Zip ([\d\.]+) \([\d-]+\)/');
 		return false;
 	}
 }
