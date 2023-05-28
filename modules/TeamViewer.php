@@ -6,7 +6,7 @@ class TeamViewer extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.teamviewer.com/en/download/windows/'))
-			return $this->parse('/<p>Current version: ([\d\.]+)<\/p>/');
+			return $this->parse('/>Current version: ([\d\.]+)<\//');
 		return false;
 	}
 }
