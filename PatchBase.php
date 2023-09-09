@@ -49,6 +49,18 @@ abstract class PatchBase {
 		}
 		return false;
 	}
+	protected function fetch_xml(string $url, array $opts = array()) : bool {
+		$str = $this->curl($url, $opts);
+		if ($str) {
+			if (!($this->data = simplexml_load_string($str)))
+				return false;
+			$ns = $this->data->getDocNamespaces(true);
+			foreach ($ns as $n => $u)
+				$this->data->registerXPathNamespace($n, $u);
+			return true;
+		}
+		return false;
+	}
 	protected function fetch_yaml(string $url, array $opts = array()) : bool {
 		$str = $this->curl($url, $opts);
 		if ($str) {
@@ -83,6 +95,13 @@ abstract class PatchBase {
 				$this->data = $v;
 				return $this->parse($re);
 			}
+		}
+		return false;
+	}
+	protected function parse_xml(string $key, string $re = '/(.*)/') : bool {
+		if ($res = $this->data->xpath($key)) {
+			$this->data = (string)$res[0];
+			return $this->parse($re);
 		}
 		return false;
 	}
