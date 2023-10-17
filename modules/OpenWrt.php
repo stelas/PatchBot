@@ -6,7 +6,7 @@ class OpenWrt extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://openwrt.org/start'))
-			return $this->parse('/<strong>Current Stable Release - OpenWrt ([\d\.]+)<\/strong>/');
+			return $this->parse('/<strong>Current stable release - OpenWrt ([\d\.]+)<\/strong>/');
 		return false;
 	}
 }
