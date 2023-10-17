@@ -6,7 +6,7 @@ class StrawberryPerl extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://strawberryperl.com/'))
-			return $this->parse('_/download/[\d\.]+/strawberry-perl-([\d\.]+)-\d+bit\.msi_');
+			return $this->parse('_/strawberry-perl-([\d\.]+)-\d+bit\.msi_');
 		return false;
 	}
 }
