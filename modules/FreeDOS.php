@@ -6,7 +6,7 @@ class FreeDOS extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.freedos.org/download/'))
-			return $this->parse('/<h2>FreeDOS ([\d\.]+)<\/h2>/');
+			return $this->parse('/FreeDOS ([\d\.]+)<\/h\d>/');
 		return false;
 	}
 }
