@@ -7,7 +7,7 @@ class CookieAutoDeleteChrome extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://chrome.google.com/webstore/detail/cookie-autodelete/fhcgjolkccmbidfldomjliifgaodjagh'))
-			return $this->parse('/<meta itemprop="version" content="([\d\.]+)"\/>/');
+			return $this->parse('/\\\"version\\\": \\\"([\d\.]+)\\\"/');
 		return false;
 	}
 }

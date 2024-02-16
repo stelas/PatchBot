@@ -7,7 +7,7 @@ class UBlockChrome extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm'))
-			return $this->parse('/<meta itemprop="version" content="([\d\.]+)"\/>/');
+			return $this->parse('/\\\"version\\\": \\\"([\d\.]+)\\\"/');
 		return false;
 	}
 }

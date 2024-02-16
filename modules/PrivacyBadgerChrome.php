@@ -7,7 +7,7 @@ class PrivacyBadgerChrome extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://chrome.google.com/webstore/detail/privacy-badger/pkehgijcmpdhfbdbbnkijodmdjhbjlgp'))
-			return $this->parse('/<meta itemprop="version" content="([\d\.]+)"\/>/');
+			return $this->parse('/\\\"version\\\": \\\"([\d\.]+)\\\"/');
 		return false;
 	}
 }

@@ -7,7 +7,7 @@ class DecentraleyesChrome extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://chrome.google.com/webstore/detail/decentraleyes/ldpochfccmkkmhdbclfhpagapcfdljkj'))
-			return $this->parse('/<meta itemprop="version" content="([\d\.]+)"\/>/');
+			return $this->parse('/\\\"version\\\": \\\"([\d\.]+)\\\"/');
 		return false;
 	}
 }
