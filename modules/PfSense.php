@@ -6,8 +6,8 @@ class PfSense extends PatchBase {
 		$this->patch->setBranch('Community Edition');
 	}
 	function check() : bool {
-		if ($this->fetch_json('https://api.github.com/repos/pfsense/pfsense/tags'))
-			return $this->parse_json('name');
+		if ($this->fetch('https://www.pfsense.org/download/'))
+			return $this->parse('/pfSense-CE-([\d\._]+)-RELEASE-amd64\.iso\.gz/');
 		return false;
 	}
 }
