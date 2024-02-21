@@ -2,7 +2,7 @@
 
 class Stubby extends PatchBase {
 	function __construct() {
-		parent::__construct('NLnet Labs', 'Stubby', 'https://dnsprivacy.org/wiki/x/JYAT');
+		parent::__construct('NLnet Labs', 'Stubby', 'https://dnsprivacy.org/dns_privacy_daemon_-_stubby/');
 	}
 	function check() : bool {
 		if ($this->fetch_json('https://api.github.com/repos/getdnsapi/stubby/releases/latest'))
