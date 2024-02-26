@@ -5,8 +5,8 @@ class Filius extends PatchBase {
 		parent::__construct('Stefan Freischlad', 'Filius', 'https://www.lernsoftware-filius.de/Herunterladen');
 	}
 	function check() : bool {
-		if ($this->fetch_json('https://gitlab.com/api/v4/projects/18855527/repository/tags'))
-			return $this->parse_json('name');
+		if ($this->fetch('https://www.lernsoftware-filius.de/Herunterladen'))
+			return $this->parse('_//www\.lernsoftware-filius\.de/downloads/Setup/filius-([\d\.]+)\.zip_');
 		return false;
 	}
 }
