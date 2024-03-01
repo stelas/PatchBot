@@ -32,9 +32,9 @@ $db->sort();
     <meta property="twitter:description" content="Patch Notification Robot provides you the latest update notifications.">
     <meta property="twitter:image" content="https://www.patchbot.de/assets/patchbot.jpg">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/font/bootstrap-icons.css">
+    <link rel="stylesheet" type="text/css" href="assets/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css">
-    <script src="assets/js/jquery-3.7.0.slim.min.js"></script>
+    <script src="assets/js/jquery-3.7.1.slim.min.js"></script>
     <script src="assets/js/datatables.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script>
