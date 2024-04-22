@@ -5,8 +5,8 @@ class Inkscape extends PatchBase {
 		parent::__construct('Inkscape Authors', 'Inkscape', 'https://inkscape.org/release/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://inkscape.org/release/'))
-			return $this->parse('/<h1>Inkscape ([\d\.]+)<\/h1>/');
+		if ($this->fetch_header('https://inkscape.org/release/'))
+			return $this->parse('/\/release\/inkscape-([\d\.]+)/');
 		return false;
 	}
 }
