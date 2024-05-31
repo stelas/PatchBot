@@ -5,8 +5,8 @@ class StrawberryPerl extends PatchBase {
 		parent::__construct('Adam Kennedy', 'Strawberry Perl', 'https://strawberryperl.com/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://strawberryperl.com/'))
-			return $this->parse('_/strawberry-perl-([\d\.]+)-\d+bit\.msi_');
+		if ($this->fetch_json('https://strawberryperl.com/releases.json'))
+			return $this->parse_json('version');
 		return false;
 	}
 }
