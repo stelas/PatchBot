@@ -6,7 +6,7 @@ class DigiKam extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.digikam.org/download/'))
-			return $this->parse('_//download\.kde\.org/stable/digikam/[\d\.]+/digiKam-([\d\.]+)-Win64\.exe\.mirrorlist_');
+			return $this->parse('_//download\.kde\.org/stable/digikam/[\d\.]+/digiKam-([\d\.]+)-Qt6-Win64\.exe\.mirrorlist_');
 		return false;
 	}
 }
