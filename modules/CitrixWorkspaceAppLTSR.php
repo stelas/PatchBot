@@ -7,7 +7,7 @@ class CitrixWorkspaceAppLTSR extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.citrix.com/downloads/workspace-app/workspace-app-for-windows-long-term-service-release/workspace-app-for-windows-LTSR-Latest.html'))
-			return $this->parse('/<p>Version: ([\d\.]+)(\([\d]+\))?<\/p>/');
+			return $this->parse('/<p>Version: ([\d\.]+)( \([\d\.]+\))?<\/p>/');
 		return false;
 	}
 }
