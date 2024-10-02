@@ -6,7 +6,7 @@ class TenEditor extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://sweetscape.com/010editor/'))
-			return $this->parse('/<div class="versiontext">v([\d\.]+)<\/div>/');
+			return $this->parse('/<div class="version-text">Current:&nbsp;v([\d\.]+)<\/div>/');
 		return false;
 	}
 }
