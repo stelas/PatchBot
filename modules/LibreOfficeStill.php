@@ -6,7 +6,7 @@ class LibreOfficeStill extends PatchBase {
 		$this->patch->setBranch('Still');
 	}
 	function check() : bool {
-		if ($this->fetch('https://update.libreoffice.org/check.php', array('CURLOPT_USERAGENT' => 'LibreOffice 7.6.2.1 (56f7684011345957bbf33a7ee678afaf4d2ba333; Windows; X86_64; )')))
+		if ($this->fetch('https://update.libreoffice.org/check.php', array('CURLOPT_USERAGENT' => 'LibreOffice 0 (3215f89-f603614-ab984f2-7348103-1225a5b; Windows; x86; )')))
 			return $this->parse('/<inst:version>([\d\.]+)<\/inst:version>/');
 		return false;
 	}
