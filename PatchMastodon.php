@@ -25,7 +25,7 @@ if (!$db->load()) {
 
 $last = timestamp();
 
-$mastodon = new MastodonAPI($MastodonAccessToken, 'https://botsin.space');
+$mastodon = new MastodonAPI($MastodonAccessToken, 'https://mastodon.social');
 
 for ($i = 0; $i < $db->count(); $i++) {
 	$patch = $db->get($i);

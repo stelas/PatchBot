@@ -51,7 +51,7 @@ $db->sort();
     <div class="container p-5">
       <h2 class="mb-4">Patch Notification Robot</h2>
       <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url"><img src="assets/btn_donateCC_LG.gif" alt="Donate" width="147" height="47" /></a></p>
-      <p><a href="https://www.patchbot.de/rss.xml"><i class="bi-rss"></i><span class="visually-hidden">Subscribe</span></a> <a rel="me" href="https://botsin.space/@Patchbot_de"><i class="bi-mastodon"></i><span class="visually-hidden">Follow me</span></a> <a href="https://github.com/stelas/PatchBot"><i class="bi-github"></i><span class="visually-hidden">Fork me</span></a> Providing you the latest update notifications.</p>
+      <p><a href="https://www.patchbot.de/rss.xml"><i class="bi-rss"></i><span class="visually-hidden">Subscribe</span></a> <a rel="me" href="https://mastodon.social/@Patchbot_de"><i class="bi-mastodon"></i><span class="visually-hidden">Follow me</span></a> <a href="https://github.com/stelas/PatchBot"><i class="bi-github"></i><span class="visually-hidden">Fork me</span></a> Providing you the latest update notifications.</p>
       <table id="patches" class="table table-bordered table-striped table-sm" data-order='[[ 4, "desc" ]]' data-page-length='25'>
         <thead class="table-primary">
           <tr>
