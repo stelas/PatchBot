@@ -144,16 +144,17 @@ abstract class PatchBase {
 		return false;
 	}
 	private function regex(string $pattern) {
-		if (!preg_match($pattern, $this->data, $m))
+		if (!preg_match_all($pattern, $this->data, $m, PREG_PATTERN_ORDER))
 			return false;
 		// suppress full pattern match
-		unset($m[0]);
+		$m = $m[1];
+		// TODO - add option: $m = array_reverse($m);
 		return $m;
 	}
 	private function regex_str(string $pattern) {
 		$m = $this->regex($pattern);
 		if ($m)
-			return $m[1];
+			return $m[0];
 		return false;
 	}
 }
