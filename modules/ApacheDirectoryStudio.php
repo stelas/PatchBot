@@ -6,7 +6,7 @@ class ApacheDirectoryStudio extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://directory.apache.org/studio/'))
-			return $this->parse('/<b>Download Apache<br>Directory Studio ([\d\.]+[-M\d]*)<\/b>/');
+			return $this->parse('/>Version ([\d\.]+[-M\d]*)</');
 		return false;
 	}
 }
