@@ -31,6 +31,7 @@ $db->sort();
     <meta property="twitter:title" content="PatchBot">
     <meta property="twitter:description" content="Patch Notification Robot provides you the latest update notifications.">
     <meta property="twitter:image" content="https://www.patchbot.de/assets/patchbot.jpg">
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/datatables.min.css">
@@ -45,13 +46,13 @@ $db->sort();
         } );
       });
     </script>
-    <title>PatchBot</title>
+    <title>Patch Notification Robot</title>
   </head>
   <body>
     <div class="container p-5">
-      <h2 class="mb-4">Patch Notification Robot</h2>
-      <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url"><img src="assets/btn_donateCC_LG.gif" alt="Donate" width="147" height="47" /></a></p>
-      <p><a href="https://www.patchbot.de/rss.xml"><i class="bi-rss"></i><span class="visually-hidden">Subscribe</span></a> <a rel="me" href="https://mastodon.social/@Patchbot_de"><i class="bi-mastodon"></i><span class="visually-hidden">Follow me</span></a> <a href="https://github.com/stelas/PatchBot"><i class="bi-github"></i><span class="visually-hidden">Fork me</span></a> Providing you the latest update notifications.</p>
+      <h1 class="mb-4">Patch Notification Robot</h1>
+      <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url" title="Donate with PayPal" target="_blank" rel="noopener"><img alt="Donate with PayPal" title="Donate with PayPal" src="assets/btn_donateCC_LG.gif" width="147" height="47"></a></p>
+      <p><a href="https://www.patchbot.de/rss.xml" title="RSS"><i class="bi-rss"></i><span class="visually-hidden">Subscribe</span></a> <a rel="me" href="https://mastodon.social/@Patchbot_de" title="Mastodon"><i class="bi-mastodon"></i><span class="visually-hidden">Follow me</span></a> <a href="https://github.com/stelas/PatchBot" title="GitHub"><i class="bi-github"></i><span class="visually-hidden">Fork me</span></a> Providing you the latest update notifications.</p>
       <table id="patches" class="table table-bordered table-striped table-sm" data-order='[[ 4, "desc" ]]' data-page-length='25'>
         <thead class="table-primary">
           <tr>
@@ -69,7 +70,7 @@ $db->sort();
 		$patch = $db->get($i);
 		echo '          <tr>';
 		echo '<td>' . htmlentities($patch->getVendor()) . '</td>';
-		echo '<td><a href="' . htmlspecialchars($patch->getURL()) . '">' . htmlentities($patch->getProduct()) . '</a></td>';
+		echo '<td><a href="' . htmlspecialchars($patch->getURL()) . '" title="Download ' . htmlentities($patch->getProduct()) . '">' . htmlentities($patch->getProduct()) . '</a></td>';
 		echo '<td>' . htmlentities($patch->getBranch()) . '</td>';
 		echo '<td>' . htmlentities($patch->getVersion()) . '</td>';
 		echo '<td>' . date('Y-m-d', $patch->getTimestamp()) . '</td>';
@@ -81,7 +82,7 @@ $db->sort();
       </table>
       <hr>
       <p class="text-end">Information are provided without any warranty. Trademarks are property of their respective owners.<br>
-      &copy; 2019-<?php echo date('y'); ?> <a href="https://steffen.lange.tel/">Steffen Lange</a> | <a href="https://www.dateihal.de/cms/imprint">Imprint</a> | <a href="https://www.dateihal.de/cms/privacy">Privacy</a></p>
+      &copy; 2019-<?php echo date('y'); ?> <a href="https://steffen.lange.tel/" title="Steffen Lange">Steffen Lange</a> | <a href="https://www.dateihal.de/cms/imprint" title="Imprint">Imprint</a> | <a href="https://www.dateihal.de/cms/privacy" title="Privacy">Privacy</a></p>
     </div>
 <script>
 /*!
