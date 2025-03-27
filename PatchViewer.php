@@ -51,8 +51,8 @@ $db->sort();
   <body>
     <div class="container p-5">
       <h1 class="mb-4">Patch Notification Robot</h1>
-      <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url" title="Donate with PayPal" target="_blank" rel="noopener"><img alt="Donate with PayPal" title="Donate with PayPal" src="assets/btn_donateCC_LG.gif" width="147" height="47"></a></p>
-      <p><a href="https://www.patchbot.de/rss.xml" title="RSS"><i class="bi-rss"></i><span class="visually-hidden">Subscribe</span></a> <a rel="me" href="https://mastodon.social/@Patchbot_de" title="Mastodon"><i class="bi-mastodon"></i><span class="visually-hidden">Follow me</span></a> <a href="https://github.com/stelas/PatchBot" title="GitHub"><i class="bi-github"></i><span class="visually-hidden">Fork me</span></a> Providing you the latest update notifications.</p>
+      <p class="text-center"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=WYQZCVJPVSS5L&amp;source=url" title="Donate with PayPal" rel="noopener"><img alt="Donate with PayPal" title="Donate with PayPal" src="assets/btn_donateCC_LG.gif" width="147" height="47"></a></p>
+      <p><a href="https://www.patchbot.de/rss.xml" title="RSS"><i class="bi-rss"></i><span class="visually-hidden">Subscribe</span></a> <a rel="me" href="https://mastodon.social/@Patchbot_de" title="Mastodon"><i class="bi-mastodon"></i><span class="visually-hidden">Follow me</span></a> <a rel="nofollow" href="https://github.com/stelas/PatchBot" title="GitHub"><i class="bi-github"></i><span class="visually-hidden">Fork me</span></a> Providing you the latest update notifications.</p>
       <table id="patches" class="table table-bordered table-striped table-sm" data-order='[[ 4, "desc" ]]' data-page-length='25'>
         <thead class="table-primary">
           <tr>
@@ -70,7 +70,7 @@ $db->sort();
 		$patch = $db->get($i);
 		echo '          <tr>';
 		echo '<td>' . htmlentities($patch->getVendor()) . '</td>';
-		echo '<td><a href="' . htmlspecialchars($patch->getURL()) . '" title="Download ' . htmlentities($patch->getProduct()) . '">' . htmlentities($patch->getProduct()) . '</a></td>';
+		echo '<td><a href="' . htmlspecialchars($patch->getURL()) . '" title="Download ' . htmlentities($patch->getProduct()) . '" target="_blank" rel="nofollow">' . htmlentities($patch->getProduct()) . '</a></td>';
 		echo '<td>' . htmlentities($patch->getBranch()) . '</td>';
 		echo '<td>' . htmlentities($patch->getVersion()) . '</td>';
 		echo '<td>' . date('Y-m-d', $patch->getTimestamp()) . '</td>';
