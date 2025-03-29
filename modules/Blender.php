@@ -6,7 +6,7 @@ class Blender extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.blender.org/download/'))
-			return $this->parse('/Download Blender ([\d\.]+)( LTS)?/');
+			return $this->parse('_//www\.blender\.org/download/release/Blender[\d\.]+/blender-([\d\.]+)-windows-x64\.msi_');
 		return false;
 	}
 }
