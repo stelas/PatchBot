@@ -6,7 +6,7 @@ class OPNsense extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://opnsense.org/download/'))
-			return $this->parse('/data-version=\'([\d.]+)\'/');
+			return $this->parse('/data-version="([\d.]+)"/');
 		return false;
 	}
 }
