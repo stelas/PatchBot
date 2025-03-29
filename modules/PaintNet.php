@@ -6,7 +6,7 @@ class PaintNet extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.getpaint.net/'))
-			return $this->parse('/<b>paint\.net\s+([\d\.]+)<\/b>/');
+			return $this->parse('/<b>Paint\.NET\s+([\d\.]+)<\/b>/');
 		return false;
 	}
 }
