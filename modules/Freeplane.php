@@ -5,8 +5,10 @@ class Freeplane extends PatchBase {
 		parent::__construct('Freeplane Team', 'Freeplane', 'https://docs.freeplane.org/');
 	}
 	function check() : bool {
-		if ($this->fetch_json('https://sourceforge.net/projects/freeplane/best_release.json'))
-			return $this->parse_json('filename', '/-([\d\.]+[u\d]*)\.[a-z]+$/');
+		if ($this->fetch('https://www.freeplane.org/info/history/history_en.txt')) {
+			$this->str_extract(1);
+			return $this->parse('/^([\d\.]+)/m');
+		}
 		return false;
 	}
 }

@@ -125,6 +125,11 @@ abstract class PatchBase {
 				$this->data = $str;
 		}
 	}
+	protected function str_extract(int $n) {
+		$lines = explode("\r\n", $this->data);
+		if (count($lines) > $n)
+			$this->data = $lines[$n];
+	}
 	private function curl(string $url, array $opts) {
 		if ($ch = curl_init()) {
 			curl_setopt($ch, CURLOPT_URL, $url);
