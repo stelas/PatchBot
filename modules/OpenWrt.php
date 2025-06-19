@@ -5,8 +5,8 @@ class OpenWrt extends PatchBase {
 		parent::__construct('OpenWrt Developers', 'OpenWrt', 'https://openwrt.org/downloads');
 	}
 	function check() : bool {
-		if ($this->fetch('https://openwrt.org/start'))
-			return $this->parse('/<strong>Current stable release - OpenWrt ([\d\.]+)<\/strong>/');
+		if ($this->fetch_json('https://downloads.openwrt.org/.versions.json'))
+			return $this->parse_json('stable_version');
 		return false;
 	}
 }
