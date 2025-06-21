@@ -81,7 +81,7 @@ $db->sort();
         </tbody>
       </table>
       <hr>
-      <p class="text-end">Information are provided without any warranty. Trademarks are property of their respective owners.<br>
+      <p class="text-end">Information is provided without any warranty. Trademarks are property of their respective owners.<br>
       &copy; 2019-<?php echo date('y'); ?> <a href="https://steffen.lange.tel/" title="Steffen Lange">Steffen Lange</a> | <a href="https://www.dateihal.de/cms/imprint" title="Imprint">Imprint</a> | <a href="https://www.dateihal.de/cms/privacy" title="Privacy">Privacy</a></p>
     </div>
 <script>
