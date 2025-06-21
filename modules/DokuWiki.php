@@ -5,8 +5,8 @@ class DokuWiki extends PatchBase {
 		parent::__construct('Andreas Gohr', 'DokuWiki', 'https://download.dokuwiki.org/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://www.dokuwiki.org/changes'))
-			return $this->parse('/Release ([\d-]+[a-z]? (\"|\xE2\x80\x9C)[A-Za-z ]+(\"|\xE2\x80\x9D))/');
+		if ($this->fetch_json('https://api.github.com/repos/dokuwiki/dokuwiki/releases/latest'))
+			return $this->parse_json('tag_name');
 		return false;
 	}
 }
