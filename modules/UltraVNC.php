@@ -6,7 +6,7 @@ class UltraVNC extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://uvnc.com/downloads/ultravnc.html'))
-			return $this->parse('/Latest release version: ([\d\.]+)/u');
+			return $this->parse('/Latest release version: UltraVNC ([\d\.]+)/u');
 		return false;
 	}
 }
