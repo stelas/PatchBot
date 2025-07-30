@@ -7,7 +7,7 @@ class IStillDontCareAboutCookiesChrome extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://chromewebstore.google.com/detail/i-still-dont-care-about-c/edibdbjcniadpccecjdfdjjppcpchdlm'))
-			return $this->parse('/<div class="N3EXSc">([\d\.]+)<\/div>/');
+			return $this->parse('/<div class="nBZElf">([\d\.]+)<\/div>/');
 		return false;
 	}
 }

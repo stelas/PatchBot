@@ -7,7 +7,7 @@ class BitwardenChrome extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb'))
-			return $this->parse('/<div class="N3EXSc">([\d\.]+)<\/div>/');
+			return $this->parse('/<div class="nBZElf">([\d\.]+)<\/div>/');
 		return false;
 	}
 }
