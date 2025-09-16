@@ -6,7 +6,7 @@ class PHP extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://www.php.net/downloads.php'))
-			return $this->parse('/Current Stable<\/span>\s*PHP ([\d\.]+)/');
+			return $this->parse('/<h3>PHP [\d\.]+ \(([\d\.]+)\)<\/h3>/');
 		return false;
 	}
 }
