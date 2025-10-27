@@ -5,8 +5,8 @@ class Duplicati extends PatchBase {
 		parent::__construct('Duplicati Team', 'Duplicati', 'https://www.duplicati.com/download');
 	}
 	function check() : bool {
-		if ($this->fetch('https://updates.duplicati.com/beta/latest-installers.js'))
-			return $this->parse('/"version": "([\d\.]+)"/');
+		if ($this->fetch_json('https://api.github.com/repos/duplicati/duplicati/releases/latest'))
+			return $this->parse_json('tag_name', '/(.+)_stable/');
 		return false;
 	}
 }
