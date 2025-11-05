@@ -81,8 +81,8 @@ abstract class PatchBase {
 		}
 		return false;
 	}
-	protected function parse(string $re) : bool {
-		if ($str = $this->regex_str($re)) {
+	protected function parse(string $re, bool $last = false) : bool {
+		if ($str = $this->regex_str($re, $last)) {
 			$this->patch->setVersion($str, true);
 			return true;
 		}
@@ -156,10 +156,10 @@ abstract class PatchBase {
 		// TODO - add option: $m = array_reverse($m);
 		return $m;
 	}
-	private function regex_str(string $pattern) {
+	private function regex_str(string $pattern, bool $last) {
 		$m = $this->regex($pattern);
 		if ($m)
-			return $m[0];
+			return $last ? end($m) : $m[0];
 		return false;
 	}
 }
