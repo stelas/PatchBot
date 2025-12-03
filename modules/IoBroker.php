@@ -6,7 +6,7 @@ class IoBroker extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch_json('https://api.github.com/repos/ioBroker/ioBroker/releases/latest'))
-			return $this->parse_json('tag_name');
+			return $this->parse_json('name');
 		return false;
 	}
 }
