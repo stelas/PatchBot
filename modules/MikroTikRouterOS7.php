@@ -6,9 +6,8 @@ class MikroTikRouterOS7 extends PatchBase {
 		$this->patch->setBranch('v7 Stable');
 	}
 	function check() : bool {
-		if ($this->fetch('https://mikrotik.com/download')) {
-			$this->str_crop('id="routeros7"', '</thead>');
-			return $this->parse('/<th>([\d\.]+) Stable<\/th>/');
+		if ($this->fetch('https://upgrade.mikrotik.com/routeros/NEWESTa7.stable')) {
+			return $this->parse('/([\d\.]+) [\d]+/');
 		}
 		return false;
 	}

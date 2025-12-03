@@ -6,9 +6,8 @@ class MikroTikRouterOS6LTS extends PatchBase {
 		$this->patch->setBranch('v6 Long-term');
 	}
 	function check() : bool {
-		if ($this->fetch('https://mikrotik.com/download')) {
-			$this->str_crop('id="routeros6"', '</thead>');
-			return $this->parse('/<th>([\d\.]+) Long-[Tt]erm<\/th>/');
+		if ($this->fetch('https://upgrade.mikrotik.com/routeros/NEWESTa6.long-term')) {
+			return $this->parse('/([\d\.]+) [\d]+/');
 		}
 		return false;
 	}
