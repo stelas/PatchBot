@@ -1,6 +1,6 @@
 <?php
 
-class WhatsApp extends PatchBase {
+class WhatsAppAPK extends PatchBase {
 	function __construct() {
 		parent::__construct('WhatsApp LLC', 'WhatsApp', 'https://www.whatsapp.com/android');
 		$this->patch->setBranch('Android');
