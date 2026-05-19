@@ -6,7 +6,7 @@ class Dnsmasq extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('http://www.thekelleys.org.uk/dnsmasq/'))
-			return $this->parse('/"LATEST_IS_([\d\.]+)"/');
+			return $this->parse('/"LATEST_IS_([\d\.]+(rel\d+)?)"/');
 		return false;
 	}
 }
