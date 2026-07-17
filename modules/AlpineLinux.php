@@ -5,8 +5,8 @@ class AlpineLinux extends PatchBase {
 		parent::__construct('Alpine Linux Development Team', 'Alpine Linux', 'https://alpinelinux.org/');
 	}
 	function check() : bool {
-		if ($this->fetch_yaml('https://alpine.global.ssl.fastly.net/alpine/latest-stable/releases/x86_64/latest-releases.yaml'))
-			return $this->parse_yaml('version');
+		if ($this->fetch('https://alpine.global.ssl.fastly.net/alpine/latest-stable/releases/x86_64/latest-releases.yaml'))
+			return $this->parse('/version: ([\d\.]+)/');
 		return false;
 	}
 }
