@@ -6,7 +6,7 @@ class Grml extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://grml.org/download/'))
-			return $this->parse('/name="version" value="([\d\.]+)"/');
+			return $this->parse('/name="?version"? value="?([\d\.]+)"?/');
 		return false;
 	}
 }
