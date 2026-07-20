@@ -1,9 +1,10 @@
 #!/bin/bash
 
 SCRIPTDIR="`dirname "$(readlink -f "$0")"`"
-SITEDIR="/var/www/virtual/steffen/patchbot.de"
+SITEDIR="/var/www/virtual/stelas/patchbot.de"
 
 "$SCRIPTDIR/PatchCollector.php" || exit 1
+[ -d "$SITEDIR" ] || exit 1
 "$SCRIPTDIR/PatchViewer.php" > "$SITEDIR/index.html"
 "$SCRIPTDIR/PatchFeeder.php" > "$SITEDIR/rss.xml"
 [ -e "$SCRIPTDIR/MastodonKey.php" ] && "$SCRIPTDIR/PatchMastodon.php"
