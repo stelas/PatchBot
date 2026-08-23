@@ -2,11 +2,11 @@
 
 class VeraCrypt extends PatchBase {
 	function __construct() {
-		parent::__construct('IDRIX', 'VeraCrypt', 'https://www.veracrypt.fr/en/Downloads.html');
+		parent::__construct('IDRIX', 'VeraCrypt', 'https://veracrypt.io/en/Downloads.html');
 	}
 	function check() : bool {
-		if ($this->fetch('https://www.veracrypt.fr/en/Downloads.html'))
-			return $this->parse('_//launchpad\.net/veracrypt/trunk/[\d\.]+[a-z]?[-a-z\d]*/\+download/VeraCrypt%20Setup%20([\d\.]+[a-z]?[-A-Za-z\d]*)\.exe_');
+		if ($this->fetch_json('https://api.github.com/repos/veracrypt/VeraCrypt/releases/latest'))
+			return $this->parse_json('tag_name');
 		return false;
 	}
 }
