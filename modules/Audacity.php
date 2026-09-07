@@ -5,8 +5,8 @@ class Audacity extends PatchBase {
 		parent::__construct('Audacity Team', 'Audacity', 'https://www.audacityteam.org/download/windows/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://www.audacityteam.org/download/windows/'))
-			return $this->parse('/<p>Current version ([\d\.]+)<\/p>/');
+		if ($this->fetch_json('https://api.github.com/repos/audacity/audacity/releases/latest'))
+			return $this->parse_json('tag_name', '/Audacity-(.+)/');
 		return false;
 	}
 }
