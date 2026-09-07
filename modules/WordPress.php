@@ -5,8 +5,8 @@ class WordPress extends PatchBase {
 		parent::__construct('WordPress Foundation', 'WordPress', 'https://wordpress.org/download/');
 	}
 	function check() : bool {
-		if ($this->fetch('https://wordpress.org/download/'))
-			return $this->parse('/Download WordPress ([\d\.]+)/');
+		if ($this->fetch_header('https://wordpress.org/latest.zip'))
+			return $this->parse('/filename=wordpress-([\d\.]+)\.zip/');
 		return false;
 	}
 }
