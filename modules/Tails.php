@@ -5,8 +5,8 @@ class Tails extends PatchBase {
 		parent::__construct('Tor Project', 'Tails', 'https://tails.net/install/index.en.html');
 	}
 	function check() : bool {
-		if ($this->fetch_json('https://gitlab.tails.boum.org/api/v4/projects/tails%2Ftails/repository/tags'))
-			return $this->parse_json('name');
+		if ($this->fetch('https://tails.net/upgrade/v2/Tails/7.11/amd64/stable/upgrades.yml'))
+			return $this->parse('/^ *version: \'([\d\.]+)\'/m');
 		return false;
 	}
 }
