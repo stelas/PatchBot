@@ -6,8 +6,8 @@ class IStillDontCareAboutCookiesFF extends PatchBase {
 		$this->patch->setBranch('for Firefox');
 	}
 	function check() : bool {
-		if ($this->fetch('https://addons.mozilla.org/en-US/firefox/addon/istilldontcareaboutcookies/'))
-			return $this->parse('/"version":"([\d\.]+)"/');
+		if ($this->fetch_json('https://addons.mozilla.org/api/v5/addons/addon/istilldontcareaboutcookies/versions/?page_size=1'))
+			return $this->parse_json('version');
 		return false;
 	}
 }
