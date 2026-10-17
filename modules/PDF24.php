@@ -5,7 +5,7 @@ class PDF24 extends PatchBase {
 		parent::__construct('geek Software', 'PDF24 Creator', 'https://tools.pdf24.org/en/creator');
 	}
 	function check() : bool {
-		if ($this->fetch('https://en.pdf24.org/'))
+		if ($this->fetch('https://www.pdf24.org/en/'))
 			return $this->parse('/<span>PDF24 Creator<\/span>\s*<span>([\d\.]+)<\/span>/');
 		return false;
 	}
