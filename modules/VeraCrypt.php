@@ -6,7 +6,7 @@ class VeraCrypt extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch_json('https://api.github.com/repos/veracrypt/VeraCrypt/releases/latest'))
-			return $this->parse_json('tag_name');
+			return $this->parse_json('tag_name', '/VeraCrypt_(.+)/');
 		return false;
 	}
 }
