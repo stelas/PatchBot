@@ -6,7 +6,7 @@ class Pinta extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch_json('https://api.github.com/repos/PintaProject/Pinta/releases/latest'))
-			return $this->parse_json('name');
+			return $this->parse_json('tag_name');
 		return false;
 	}
 }
