@@ -6,7 +6,7 @@ class Tails extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch('https://tails.net/upgrade/v2/Tails/7.11/amd64/stable/upgrades.yml'))
-			return $this->parse('/^ *version: \'([\d\.]+)\'/m');
+			return $this->parse('/^ *version: \'?([\d\.]+)\'?/m');
 		return false;
 	}
 }
