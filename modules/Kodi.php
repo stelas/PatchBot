@@ -6,7 +6,7 @@ class Kodi extends PatchBase {
 	}
 	function check() : bool {
 		if ($this->fetch_json('https://api.github.com/repos/xbmc/xbmc/releases/latest'))
-			return $this->parse_json('tag_name');
+			return $this->parse_json('tag_name', '/(.+)-[A-Za-z]+/');
 		return false;
 	}
 }
